@@ -2,14 +2,18 @@ import React from "react";
 import LoginPage from "./Views/Loginpage";
 import SignUpPage from "./Views/SingUpPage";
 import NavBar from "./Components/Navbar";
-// Views/Loginpage.js
+import { Route, Switch } from 'react-router-dom'
+import Home from './Views/Home'
 
 function App() {
   return (
     <div className="App">
       <NavBar />
-      <LoginPage />
-      <SignUpPage />
+      <Switch>
+        <Route exact path='/' component={Home} />
+        <LoginPage />
+        <SignUpPage />
+      </Switch>
     </div>
   );
 }
