@@ -4,6 +4,7 @@ import SignUpPage from "./Views/SingUpPage";
 import NavBar from "./Components/Navbar";
 import { Route, Switch } from 'react-router-dom'
 import Home from './Views/Home'
+import './Style/app.css'
 
 function App() {
   return (

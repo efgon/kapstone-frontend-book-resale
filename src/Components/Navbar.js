@@ -1,26 +1,44 @@
 import React from "react";
-import { Navbar, Nav, Button, Form, FormControl } from "react-bootstrap";
-import cart from "../img/cart.png";
+import { Navbar, Nav, Button, Form, FormControl, NavDropdown } from "react-bootstrap";
+import cart from "../img/cartImage.jpeg";
+import { Link } from 'react-router-dom'
 function NavBar() {
   return (
     <>
-      <Navbar bg="dark" variant="dark">
+      <Navbar bg="light" variant="light" expand="lg">
         <Navbar.Brand href="#home">Book Store</Navbar.Brand>
         <Nav className="mr-auto">
-          <Nav.Link href="#home">Home</Nav.Link>
-          <Nav.Link href="#features">User Profile</Nav.Link>
+          <Nav.Link href="#home">Placeholder</Nav.Link>
 
-          <Nav.Link href="#pricing">
-            Cart Button
-            {/* <img src={cart} /> */}
-          </Nav.Link>
         </Nav>
         <Form inline>
-          <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+        </Form>
+        <NavDropdown title="My Account" id="basic-nav-dropdown">
+          <NavDropdown.Item href="#action/3.1">
+            <div className='signInButton'>
+              <Button variant="secondary">Sign In</Button>
+            </div>
+          </NavDropdown.Item>
+          <NavDropdown.Item href="#action/3.1"><Link style={{ color: 'black' }}>Create an Account</Link></NavDropdown.Item>
+          <NavDropdown.Divider />
+          <NavDropdown.Item href="#action/3.1">My Page</NavDropdown.Item>
+          <NavDropdown.Item href="#action/3.2">Order History</NavDropdown.Item>
+          <NavDropdown.Item href="#action/3.4">Credit Balance $ </NavDropdown.Item>
+          <NavDropdown.Divider />
+          <NavDropdown.Item href="#action/3.4">Log Out </NavDropdown.Item>
+        </NavDropdown>
+        <Nav.Link href="#pricing">
+          <img className='cart' src={cart} />
+        </Nav.Link>
+      </Navbar>
+
+      <Navbar bg="light" variant="light" >
+        <Form inline style={{ margin: 'auto' }}>
+          <div classname='searchBar'>
+            <FormControl type="text" placeholder="Search by Title, Author, or Category" className="mr-sm-2" style={{ width: '500px' }} />
+          </div>
           <Button variant="outline-info">Search</Button>
         </Form>
-        {/*USER NAME AND CREDIT GOES HERE*/}
-        <Button variant="warning">Logout</Button>
       </Navbar>
     </>
   );
