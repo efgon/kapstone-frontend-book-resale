@@ -3,11 +3,14 @@ import Carousel from 'react-bootstrap/Carousel'
 import ImageOne from '../img/book image 1.jpeg'
 import ImageTwo from '../img/book image 2.jpeg'
 import ImageThree from '../img/book image 3.jpeg'
+import bannerImage from '../img/offerOfTheMonth.jpeg'
+import Image from 'react-bootstrap/Image'
+
 function Home() {
     console.log('this should be home')
     return (
         <div>
-            <h1>Home Page</h1>
+            <Image style={{ width: '700px', height: '100px', paddingBottom: '10px', paddingTop: '10px' }} src={bannerImage} fluid />
             <div className='homeCarousel'>
                 <Carousel>
                     <Carousel.Item interval={1000}>
