@@ -18,8 +18,8 @@ function Home() {
             <div>
                 <Image style={{ width: '700px', height: '100px', paddingBottom: '10px', paddingTop: '10px' }} src={bannerImage} fluid />
                 <div className='homeCarousel'>
-                    <Carousel>
-                        <Carousel.Item interval={1000}>
+                    <Carousel fade>
+                        <Carousel.Item interval={4000}>
                             <img
                                 className="d-block w-100"
                                 src={ImageOne}
@@ -30,7 +30,7 @@ function Home() {
                                 <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
                             </Carousel.Caption>
                         </Carousel.Item>
-                        <Carousel.Item interval={500}>
+                        <Carousel.Item interval={4000}>
                             <img
                                 className="d-block w-100"
                                 src={ImageTwo}
@@ -41,7 +41,7 @@ function Home() {
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                             </Carousel.Caption>
                         </Carousel.Item>
-                        <Carousel.Item>
+                        <Carousel.Item interval={4000}>
                             <img
                                 className="d-block w-100"
                                 src={ImageThree}
@@ -87,7 +87,7 @@ function Home() {
                         </Card.Body>
                     </Card>
                     <Card style={{ width: '15rem', height: '33rem' }}>
-                        <Link to='/'><Card.Img variant="top" src={bookImageFour} style={{ height: '320px' }} /></Link>
+                        <Link to='/SingleBookInfo'><Card.Img variant="top" src={bookImageFour} style={{ height: '320px' }} /></Link>
                         <Card.Body>
                             <Card.Title>Book title</Card.Title>
                             <Card.Text>

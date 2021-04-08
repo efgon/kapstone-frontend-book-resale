@@ -6,7 +6,7 @@ function NavBar() {
   return (
     <>
       <Navbar bg="light" variant="light" expand="lg">
-        <Navbar.Brand href="#home">Second Chapter Book Resale</Navbar.Brand>
+        <Navbar.Brand href="/">Second Chapter</Navbar.Brand>
         <Nav className="mr-auto">
           <Nav.Link href="#home">Placeholder</Nav.Link>
 
@@ -32,7 +32,7 @@ function NavBar() {
         </Nav.Link>
       </Navbar>
 
-      <Navbar bg="light" variant="light" >
+      <Navbar bg="light" variant="light" style={{ marginBottom: '20px' }}>
         <Form inline style={{ margin: 'auto' }}>
           <div classname='searchBar'>
             <FormControl type="text" placeholder="Search by Title, Author, or Category" className="mr-sm-2" style={{ width: '500px' }} />
