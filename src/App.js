@@ -8,6 +8,7 @@ import './Style/app.css'
 import Footer from './Components/Footer'
 import SingleBookInfo from "./Views/SingleBookInfo";
 import Header from './Components/Header'
+import Searchresult from "./Views/Searchresult";
 function App() {
   return (
     <div className="App">
@@ -15,7 +16,8 @@ function App() {
       <NavBar />
       <Switch>
         <Route exact path='/' component={Home} />
-        <Route path='/SingleBookInfo' component={SingleBookInfo} />
+        <Route exact path='/SingleBookInfo' component={SingleBookInfo} />
+        <Route exact path='/Searchresult' component={Searchresult} />
         <LoginPage />
         <SignUpPage />
       </Switch>

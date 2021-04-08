@@ -2,6 +2,7 @@ import React from "react";
 import { Navbar, Nav, Button, Form, FormControl, NavDropdown } from "react-bootstrap";
 import cart from "../img/cartImage.jpeg";
 import { Link } from 'react-router-dom'
+
 function NavBar() {
   return (
     <>
@@ -37,7 +38,7 @@ function NavBar() {
           <div classname='searchBar'>
             <FormControl type="text" placeholder="Search by Title, Author, or Category" className="mr-sm-2" style={{ width: '500px' }} />
           </div>
-          <Button variant="outline-dark">Search</Button>
+          <Button variant="outline-dark"><Link to='/Searchresult'>Search</Link></Button>
         </Form>
       </Navbar>
     </>
