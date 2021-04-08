@@ -5,6 +5,7 @@ import NavBar from "./Components/Navbar";
 import { Route, Switch } from 'react-router-dom'
 import Home from './Views/Home'
 import './Style/app.css'
+import Footer from './Components/Footer'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <LoginPage />
         <SignUpPage />
       </Switch>
+      <Footer />
     </div>
   );
 }
