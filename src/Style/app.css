@@ -37,3 +37,11 @@ img {
     justify-content: center;
     height: 30rem; 
 }
+.Searchresult {
+    width: 64rem;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding-bottom: 20px;
+}
