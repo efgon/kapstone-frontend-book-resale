@@ -1,44 +1,61 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Carousel from 'react-bootstrap/Carousel'
-import greyBackground from '../img/darkGreyBackground.jpeg'
+import KenzieAdd from '../img/kenzieAdd.jpeg'
+import cokeAd from '../img/cokeAdvertisement.jpeg'
+import FCCad from '../img/freecodeCampAd.jpeg'
+import SNHUad from '../img/snhu.jpeg'
 
 function Header() {
     return (
         <div>
-            <Carousel style={{ height: '60px' }}>
+            <Carousel style={{ margin: 'auto', height: '80px', width: '900px' }}>
                 <Carousel.Item interval={7000}>
                     <img
+
                         style={{ height: '80px' }}
                         className="d-block w-100"
-                        src={greyBackground}
-                        alt="First slide"
+                        src={KenzieAdd}
+                        alt="Kenzie Academy Ad Banner"
                     />
-                    <Carousel.Caption>
-                        <h3>Advertisement 1</h3>
+                    <Carousel.Caption style={{ color: 'black', textAlign: 'left' }}>
+                        <a style={{ color: 'grey' }} href='https://www.kenzie.academy/'>
+                            <h4>Join Kenzie Academy</h4>
+                        </a>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item interval={7000}>
                     <img
                         style={{ height: '80px' }}
                         className="d-block w-100"
-                        src={greyBackground}
+                        src={SNHUad}
                         alt="Second slide"
                     />
 
                     <Carousel.Caption>
-                        <h3>Advertisement 2</h3>
+                        <a
+                            href='https://www.snhu.edu'
+                            style={{ color: 'white', textAlign: 'left' }}
+                        >
+                            <h4>Your future</h4>
+                        </a>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item interval={7000}>
                     <img
                         style={{ height: '80px' }}
                         className="d-block w-100"
-                        src={greyBackground}
-                        alt="Third slide"
+                        src={FCCad}
+                        alt="Free Code Camp Banner"
                     />
 
                     <Carousel.Caption>
-                        <h3>Advertisement 3</h3>
+                        <a
+                            href='https://www.freecodecamp.org/'
+                            style={{ color: 'white' }}
+                        >
+                            <h3>Learn to code free!</h3>
+                        </a>
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>

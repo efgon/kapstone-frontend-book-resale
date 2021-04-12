@@ -8,20 +8,6 @@ function SingleBookInfo() {
         <div className='bookInfo' style={{ marginTop: '80px' }}>
             <Image src={bookImage} thumbnail style={{ height: '320px', width: '180px' }} />
 
-            {/* <Card className="text-center" style={{ width: '55rem', border: 'none' }}>
-                <Card.Header>Math Book</Card.Header>
-                <Card.Body>
-                    <Card.Title>Author: Random Author</Card.Title>
-                    <Card.Text>
-                        This is a math textbook. It is hard coded but will have more detail later.
-    </Card.Text>
-                </Card.Body>
-                <Card.Footer className="text-muted">
-                    <Button variant="outline-dark">Buy for $</Button>
-                    <Button variant="outline-dark">Rent for $</Button>
-                </Card.Footer>
-            </Card> */}
-
             <Card style={{ width: '45rem', height: '20rem' }}>
                 <Card.Body>
                     <Card.Title>Math Book</Card.Title>

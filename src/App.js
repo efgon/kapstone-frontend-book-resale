@@ -9,6 +9,8 @@ import Footer from './Components/Footer'
 import SingleBookInfo from "./Views/SingleBookInfo";
 import Header from './Components/Header'
 import Searchresult from "./Views/Searchresult";
+import UserProfilePage from './Views/UserProfile'
+
 function App() {
   return (
     <div className="App">
@@ -18,8 +20,9 @@ function App() {
         <Route exact path='/' component={Home} />
         <Route exact path='/SingleBookInfo' component={SingleBookInfo} />
         <Route exact path='/Searchresult' component={Searchresult} />
-        <LoginPage />
-        <SignUpPage />
+        <Route exact path='/SignUp' component={SignUpPage} />
+        <Route exact path='/UserProfile' component={UserProfilePage} />
+        <Route exact path='/LogInPage' component={LoginPage} />
       </Switch>
       <Footer />
     </div>
