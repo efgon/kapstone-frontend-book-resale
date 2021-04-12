@@ -1,8 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import Carousel from 'react-bootstrap/Carousel'
 import KenzieAdd from '../img/kenzieAdd.jpeg'
-import cokeAd from '../img/cokeAdvertisement.jpeg'
 import FCCad from '../img/freecodeCampAd.jpeg'
 import SNHUad from '../img/snhu.jpeg'
 

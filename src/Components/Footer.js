@@ -1,5 +1,5 @@
 import React from 'react'
-import { Navbar, Nav, Button, Form, FormControl, NavDropdown, InputGroup, Card } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 
 function Footer() {
     return (

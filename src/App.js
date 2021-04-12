@@ -10,6 +10,7 @@ import SingleBookInfo from "./Views/SingleBookInfo";
 import Header from './Components/Header'
 import Searchresult from "./Views/Searchresult";
 import UserProfilePage from './Views/UserProfile'
+import Cart from './Views/Cart'
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route exact path='/SignUp' component={SignUpPage} />
         <Route exact path='/UserProfile' component={UserProfilePage} />
         <Route exact path='/LogInPage' component={LoginPage} />
+        <Route exact path='/ShoppingCart' component={Cart} />
       </Switch>
       <Footer />
     </div>
