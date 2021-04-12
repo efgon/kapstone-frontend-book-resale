@@ -39,8 +39,8 @@ function NavBar() {
           <NavDropdown.Item href="#action/3.4">Log Out </NavDropdown.Item>
         </NavDropdown>
 
-        <Nav.Link href="#pricing">
-          <img className='cart' src={cart} />
+        <Nav.Link href="/shoppingCart">
+          <img className='cart' src={cart} onClick={<Link to='/ShoppingCart' />} />
         </Nav.Link>
       </Navbar>
 
