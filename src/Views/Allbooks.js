@@ -6,13 +6,9 @@ import bookImageThree from '../book img/javascript.jpeg'
 import bookImageFour from '../book img/mathBook.jpeg'
 import { Link } from 'react-router-dom'
 
-function Searchresult() {
-
+function Allbooks() {
     return (
-        <>
-            <h3>Sorry we do not have that book.</h3>
-            <h5>Try these books instead</h5>
-            <hr />
+        <div>
             <div className='Searchresult'>
                 <Card style={{ width: '15rem', height: '33rem' }}>
                     <Card.Img variant="top" src={bookImageTwo} style={{ height: '320px' }} />
@@ -95,8 +91,8 @@ function Searchresult() {
                     </Card.Body>
                 </Card>
             </div>
-        </>
+        </div>
     )
 }
 
-export default Searchresult
+export default Allbooks

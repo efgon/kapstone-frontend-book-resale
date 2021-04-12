@@ -14,6 +14,9 @@ import Cart from './Views/Cart'
 import AddressPage from './Views/AddressPage'
 import OrderHistory from './Views/OderHistory'
 import AccountSettings from './Views/AccountSettings'
+import SearchNoResults from "./Views/SearchNoResults";
+import Allbooks from './Views/Allbooks'
+import MyBooks from './Views/MyBooks'
 
 function App() {
   return (
@@ -31,6 +34,9 @@ function App() {
         <Route exact path='/AccountSettings' component={AccountSettings} />
         <Route exact path='/OrderHistory' component={OrderHistory} />
         <Route exact path='/AddressPage' component={AddressPage} />
+        <Route exact path='/Allbooks' component={Allbooks} />
+        <Route exact path='/MyBooks' component={MyBooks} />
+        <Route path='/Searchresult/:search' component={SearchNoResults} />
       </Switch>
       <Footer />
     </div>
