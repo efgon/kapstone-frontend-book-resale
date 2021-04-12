@@ -13,6 +13,7 @@ import { Link } from 'react-router-dom'
 
 function Home() {
 
+
     return (
         <>
             <div>
@@ -57,6 +58,7 @@ function Home() {
                     </Carousel>
                 </div>
                 <h1>Now Trending</h1>
+                <hr />
                 <div className='bookshelf'>
                     <Card style={{ width: '15rem', height: '33rem' }}>
                         <Card.Img variant="top" src={bookImageTwo} style={{ height: '320px' }} />
