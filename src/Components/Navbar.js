@@ -14,20 +14,31 @@ function NavBar() {
         </Nav>
         <Form inline>
         </Form>
+
         <NavDropdown title="My Account" id="basic-nav-dropdown">
           <NavDropdown.Item href="#action/3.1">
             <div className='signInButton'>
-              <Button variant="secondary">Sign In</Button>
+              <Button variant="outline-dark">
+                <Link to='/LogInPage' style={{ color: 'black' }}>
+                  Sign In
+                </Link>
+              </Button>
             </div>
           </NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.1"><Link style={{ color: 'black' }}>Create an Account</Link></NavDropdown.Item>
+
+          <NavDropdown.Item href="#action/3.1">
+            <Link to='/SignUp' style={{ color: 'black' }}>Create an Account</Link>
+          </NavDropdown.Item>
           <NavDropdown.Divider />
-          <NavDropdown.Item href="#action/3.1">My Page</NavDropdown.Item>
+          <NavDropdown.Item href="#action/3.1">
+            <Link to='/UserProfile' style={{ color: 'black' }}>My Page</Link>
+          </NavDropdown.Item>
           <NavDropdown.Item href="#action/3.2">Order History</NavDropdown.Item>
           <NavDropdown.Item href="#action/3.4">Credit Balance $ </NavDropdown.Item>
           <NavDropdown.Divider />
           <NavDropdown.Item href="#action/3.4">Log Out </NavDropdown.Item>
         </NavDropdown>
+
         <Nav.Link href="#pricing">
           <img className='cart' src={cart} />
         </Nav.Link>
@@ -38,7 +49,11 @@ function NavBar() {
           <div classname='searchBar'>
             <FormControl type="text" placeholder="Search by Title, Author, or Category" className="mr-sm-2" style={{ width: '500px' }} />
           </div>
-          <Button variant="outline-dark"><Link to='/Searchresult'>Search</Link></Button>
+          <Button variant="outline-dark">
+            <Link to='/Searchresult' style={{ color: 'black' }}>
+              Search
+            </Link>
+          </Button>
         </Form>
       </Navbar>
     </>

@@ -4,7 +4,9 @@ import { Form, Button } from "react-bootstrap";
 function LoginPage() {
   return (
     <>
-      <Form>
+      <h1>Please Sign in to your Account</h1>
+      <hr />
+      <Form style={{ margin: 'auto', width: '700px', paddingBottom: '20px' }}>
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control type="email" placeholder="Enter email" />
@@ -15,7 +17,7 @@ function LoginPage() {
           <Form.Label>Password</Form.Label>
           <Form.Control type="password" placeholder="Password" />
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button variant="outline-dark" type="submit">
           Submit
         </Button>
       </Form>

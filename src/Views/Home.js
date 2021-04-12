@@ -12,11 +12,13 @@ import bookImageFour from '../book img/mathBook.jpeg'
 import { Link } from 'react-router-dom'
 
 function Home() {
-    console.log('this should be home')
+
     return (
         <>
             <div>
-                <Image style={{ width: '700px', height: '100px', paddingBottom: '10px', paddingTop: '10px' }} src={bannerImage} fluid />
+                <Link to='/Searchresult'>
+                    <Image style={{ width: '700px', height: '100px', paddingBottom: '10px', paddingTop: '10px' }} src={bannerImage} fluid />
+                </Link>
                 <div className='homeCarousel'>
                     <Carousel fade>
                         <Carousel.Item interval={4000}>
