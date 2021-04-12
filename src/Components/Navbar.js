@@ -33,8 +33,12 @@ function NavBar() {
           <NavDropdown.Item href="#action/3.1">
             <Link to='/UserProfile' style={{ color: 'black' }}>My Page</Link>
           </NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.2">Order History</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.4">Credit Balance $ </NavDropdown.Item>
+          <NavDropdown.Item>
+            <Link to='/OrderHistory' style={{ color: 'black' }}>
+              Order History
+            </Link>
+          </NavDropdown.Item>
+          <NavDropdown.Item href="#action/3.4">Credit Balance <h5>$42.76</h5> </NavDropdown.Item>
           <NavDropdown.Divider />
           <NavDropdown.Item href="#action/3.4">Log Out </NavDropdown.Item>
         </NavDropdown>

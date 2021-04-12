@@ -46,7 +46,7 @@ function Cart() {
                             <ListGroup className="list-group-flush">
                                 <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
                                 <ListGroupItem>Vestibulum at eros</ListGroupItem>
-                                <ListGroupItem>Price: $12.99</ListGroupItem>
+                                <ListGroupItem>{`Price: $12.99`}</ListGroupItem>
                             </ListGroup>
                         </Card.Body>
                         <Card.Footer className="text-muted">
@@ -68,11 +68,11 @@ function Cart() {
 
                 <div className='checkout'>
                     <Card style={{ width: '250px' }}>
-                        <Card.Header>Featured</Card.Header>
+                        <Card.Header>Checkout</Card.Header>
                         <Card.Body>
-                            <Card.Title>Special title treatment</Card.Title>
+                            <Card.Title>Cart Total: $25.98</Card.Title>
                             <Card.Text>
-                                With supporting text below as a natural lead-in to additional content.
+                                Shipping Rates may vary by location
                     </Card.Text>
                             <Button variant="outline-dark">Checkout</Button>
                         </Card.Body>

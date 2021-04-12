@@ -47,7 +47,6 @@ function UserProfile() {
                         <Card.Text>
                             <h2>$26.98</h2>
                         </Card.Text>
-                        {/* <Card.Link href="#">Add Currency</Card.Link> */}
                     </Card.Body>
                 </Card>
 
@@ -65,7 +64,7 @@ function UserProfile() {
                             Zip Code:
                     </Card.Text>
                         <Button variant="outline-dark">
-                            <Link to='/Address' style={{ color: 'black' }}>Add/Update Address</Link>
+                            <Link to='/AddressPage' style={{ color: 'black' }}>Add/Update Address</Link>
                         </Button>
                     </Card.Body>
                 </Card>

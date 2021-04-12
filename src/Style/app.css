@@ -70,3 +70,15 @@ img {
     margin-top: 5rem;
     margin-right: 10rem;
 }
+.addressPage{
+    margin: auto;
+    width: 700px;
+}
+.accountSettings {
+    margin: auto;
+    text-align: left;
+    width: 60rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
