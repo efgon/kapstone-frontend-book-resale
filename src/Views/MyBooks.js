@@ -1,8 +1,6 @@
 import React from 'react'
-import { Image, Card, Button } from 'react-bootstrap'
-import bookImageOne from '../book img/interviewBook.jpeg'
+import { Card, Button } from 'react-bootstrap'
 import bookImageTwo from '../book img/vanGogh.jpeg'
-import bookImageThree from '../book img/javascript.jpeg'
 import bookImageFour from '../book img/mathBook.jpeg'
 import { Link } from 'react-router-dom'
 

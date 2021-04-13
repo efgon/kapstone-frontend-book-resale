@@ -104,10 +104,10 @@ function Home() {
             {/* </div> */}
             {BooksArray.map((book) => {
                 { console.log(book.Title) }
-                (<div className='bookshelf'>
+                return (<div className='bookshelf'>
                     <Card style={{ width: '15rem', height: '33rem' }}>
                         {console.log(book.Title)}
-                        <Card.Img variant="top" src={book.imageUrl} style={{ height: '320px' }} />
+                        <Card.Img key={book.id} variant="top" src={book.imageUrl} style={{ height: '320px' }} />
                         <Card.Body>
                             <Card.Title>{book.Title}</Card.Title>
                             <Card.Text>

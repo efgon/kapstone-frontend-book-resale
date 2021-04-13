@@ -1,7 +1,7 @@
 import React from 'react'
 import { Image } from 'react-bootstrap'
 import bookImage from '../book img/mathBook.jpeg'
-import { Media, Card, Button } from 'react-bootstrap'
+import { Card, Button } from 'react-bootstrap'
 
 function SingleBookInfo() {
     return (
