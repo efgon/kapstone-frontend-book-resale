@@ -1,15 +1,15 @@
 import React from 'react'
-import Carousel from 'react-bootstrap/Carousel'
-import ImageOne from '../img/book image 1.jpeg'
-import ImageTwo from '../img/book image 2.jpeg'
-import ImageThree from '../img/book image 3.jpeg'
-import bannerImage from '../img/offerOfTheMonth.jpeg'
-import { Image, Button } from 'react-bootstrap'
-import bookImageOne from '../book img/interviewBook.jpeg'
-import bookImageTwo from '../book img/vanGogh.jpeg'
-import bookImageThree from '../book img/javascript.jpeg'
-import bookImageFour from '../book img/mathBook.jpeg'
-import { Link } from 'react-router-dom'
+// import Carousel from 'react-bootstrap/Carousel'
+// import ImageOne from '../img/book image 1.jpeg'
+// import ImageTwo from '../img/book image 2.jpeg'
+// import ImageThree from '../img/book image 3.jpeg'
+// import bannerImage from '../img/offerOfTheMonth.jpeg'
+// import { Image, Button } from 'react-bootstrap'
+// import bookImageOne from '../book img/interviewBook.jpeg'
+// import bookImageTwo from '../book img/vanGogh.jpeg'
+// import bookImageThree from '../book img/javascript.jpeg'
+// import bookImageFour from '../book img/mathBook.jpeg'
+// import { Link } from 'react-router-dom'
 import { BooksArray } from '../Components/BooksArray'
 import Card from 'react-bootstrap/Card'
 
@@ -102,24 +102,22 @@ function Home() {
                         </Card.Body>
                     </Card> */}
             {/* </div> */}
-            {
-                BooksArray.map((book) => {
-                    { console.log(book.Title) }
-                    <h1>book.Title</h1>
-                    // (<div className='bookshelf'>
-                    //     <Card style={{ width: '15rem', height: '33rem' }}>
-                    //         {console.log(book.Title)}
-                    //         <Card.Img variant="top" src={book.imageUrl} style={{ height: '320px' }} />
-                    //         <Card.Body>
-                    //             <Card.Title>{book.Title}</Card.Title>
-                    //             <Card.Text>
-                    //                 {book.Description}
-                    //             </Card.Text>
-                    //         </Card.Body>
-
-                    //     </Card>
-                    // </div>)
-                })
+            {BooksArray.map((book) => {
+                { console.log(book.Title) }
+                (<div className='bookshelf'>
+                    <Card style={{ width: '15rem', height: '33rem' }}>
+                        {console.log(book.Title)}
+                        <Card.Img variant="top" src={book.imageUrl} style={{ height: '320px' }} />
+                        <Card.Body>
+                            <Card.Title>{book.Title}</Card.Title>
+                            <Card.Text>
+                                {book.Description}
+                            </Card.Text>
+                        </Card.Body>
+                    </Card>
+                </div>
+                )
+            })
             }
         </div>
     )
