@@ -58,7 +58,7 @@ function Home() {
 
             <div className='bookshelf'>
                 {BooksArray.map((book) => {
-                    if (book.id <= 7) {
+                    if (book.id <= 4) {
                         return (
                             <Card style={{ width: '15rem', height: '36rem', marginBottom: '20px' }}>
                                 {console.log(book.Title)}
