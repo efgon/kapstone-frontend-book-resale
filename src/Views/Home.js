@@ -4,62 +4,63 @@ import ImageOne from '../img/book image 1.jpeg'
 import ImageTwo from '../img/book image 2.jpeg'
 import ImageThree from '../img/book image 3.jpeg'
 import bannerImage from '../img/offerOfTheMonth.jpeg'
-import { Image, Card, Button } from 'react-bootstrap'
+import { Image, Button } from 'react-bootstrap'
 import bookImageOne from '../book img/interviewBook.jpeg'
 import bookImageTwo from '../book img/vanGogh.jpeg'
 import bookImageThree from '../book img/javascript.jpeg'
 import bookImageFour from '../book img/mathBook.jpeg'
 import { Link } from 'react-router-dom'
+import { BooksArray } from '../Components/BooksArray'
+import Card from 'react-bootstrap/Card'
 
 function Home() {
 
 
     return (
-        <>
-            <div>
-                <Link to='/Searchresult'>
-                    <Image style={{ width: '700px', height: '100px', paddingBottom: '10px', paddingTop: '10px' }} src={bannerImage} fluid />
-                </Link>
-                <div className='homeCarousel'>
-                    <Carousel fade>
-                        <Carousel.Item interval={4000}>
-                            <img
-                                className="d-block w-100"
-                                src={ImageOne}
-                                alt="First slide"
-                            />
-                            <Carousel.Caption>
-                                <h3>First slide label</h3>
-                                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                            </Carousel.Caption>
-                        </Carousel.Item>
-                        <Carousel.Item interval={4000}>
-                            <img
-                                className="d-block w-100"
-                                src={ImageTwo}
-                                alt="Second slide"
-                            />
-                            <Carousel.Caption>
-                                <h3>Second slide label</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </Carousel.Caption>
-                        </Carousel.Item>
-                        <Carousel.Item interval={4000}>
-                            <img
-                                className="d-block w-100"
-                                src={ImageThree}
-                                alt="Third slide"
-                            />
-                            <Carousel.Caption>
-                                <h3>Third slide label</h3>
-                                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                            </Carousel.Caption>
-                        </Carousel.Item>
-                    </Carousel>
-                </div>
-                <h1>Now Trending</h1>
-                <hr />
-                <div className='bookshelf'>
+        <div>
+            {/* <Link to='/Searchresult'>
+                <Image style={{ width: '700px', height: '100px', paddingBottom: '10px', paddingTop: '10px' }} src={bannerImage} fluid />
+            </Link>
+            <div className='homeCarousel'>
+                <Carousel fade>
+                    <Carousel.Item interval={4000}>
+                        <img
+                            className="d-block w-100"
+                            src={ImageOne}
+                            alt="First slide"
+                        />
+                        <Carousel.Caption>
+                            <h3>First slide label</h3>
+                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                    <Carousel.Item interval={4000}>
+                        <img
+                            className="d-block w-100"
+                            src={ImageTwo}
+                            alt="Second slide"
+                        />
+                        <Carousel.Caption>
+                            <h3>Second slide label</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                    <Carousel.Item interval={4000}>
+                        <img
+                            className="d-block w-100"
+                            src={ImageThree}
+                            alt="Third slide"
+                        />
+                        <Carousel.Caption>
+                            <h3>Third slide label</h3>
+                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                </Carousel>
+            </div>
+            <h1>Now Trending</h1>
+            <hr /> */}
+            {/* <div className='bookshelf'>
                     <Card style={{ width: '15rem', height: '33rem' }}>
                         <Card.Img variant="top" src={bookImageTwo} style={{ height: '320px' }} />
                         <Card.Body>
@@ -99,10 +100,28 @@ function Home() {
                                 the card's content.
     </Card.Text>
                         </Card.Body>
-                    </Card>
-                </div>
-            </div>
-        </>
+                    </Card> */}
+            {/* </div> */}
+            {
+                BooksArray.map((book) => {
+                    { console.log(book.Title) }
+                    <h1>book.Title</h1>
+                    // (<div className='bookshelf'>
+                    //     <Card style={{ width: '15rem', height: '33rem' }}>
+                    //         {console.log(book.Title)}
+                    //         <Card.Img variant="top" src={book.imageUrl} style={{ height: '320px' }} />
+                    //         <Card.Body>
+                    //             <Card.Title>{book.Title}</Card.Title>
+                    //             <Card.Text>
+                    //                 {book.Description}
+                    //             </Card.Text>
+                    //         </Card.Body>
+
+                    //     </Card>
+                    // </div>)
+                })
+            }
+        </div>
     )
 }
 

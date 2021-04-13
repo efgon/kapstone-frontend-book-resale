@@ -36,7 +36,7 @@ function App() {
         <Route exact path='/AddressPage' component={AddressPage} />
         <Route exact path='/Allbooks' component={Allbooks} />
         <Route exact path='/MyBooks' component={MyBooks} />
-        <Route path='/Searchresult/:search' component={SearchNoResults} />
+        <Route exact path='/Searchresult/:search' component={SearchNoResults} />
       </Switch>
       <Footer />
     </div>

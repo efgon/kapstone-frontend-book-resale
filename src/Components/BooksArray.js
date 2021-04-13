@@ -1,6 +1,6 @@
 //Tags.... JavaScrip, Coding, React, Vue, HTML, CSS,
 
-const BooksArray = [
+export const BooksArray = [
     {
         id: 0,
         Title: 'Eloquent JavaScript, 3rd Edition ',
