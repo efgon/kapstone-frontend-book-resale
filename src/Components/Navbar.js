@@ -8,7 +8,7 @@ function NavBar() {
   const [loggedIn, setLoggedIn] = useState(false)
   const [cartItems, setCartItems] = useState(0)
 
-  const logInOut = () => setLoggedIn(!loggedIn)
+  const logInOut = () => { setLoggedIn(!loggedIn) }
 
   return (
     <>
@@ -69,7 +69,7 @@ function NavBar() {
 
       <Navbar bg="light" variant="light" >
         <Form inline style={{ margin: 'auto' }}>
-          <div classname='searchBar'>
+          <div className='searchBar'>
             <FormControl type="text" placeholder="Search by Title, Author, or Category" className="mr-sm-2" style={{ width: '500px' }} />
           </div>
           <Button variant="outline-dark">
