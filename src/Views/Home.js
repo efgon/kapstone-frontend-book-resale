@@ -11,9 +11,8 @@ import Card from 'react-bootstrap/Card'
 
 function Home() {
 
-
     return (
-        <div>
+        <>
             <Link to='/Searchresult'>
                 <Image style={{ width: '700px', height: '100px', paddingBottom: '10px', paddingTop: '10px' }} src={bannerImage} fluid />
             </Link>
@@ -59,24 +58,31 @@ function Home() {
 
             <div className='bookshelf'>
                 {BooksArray.map((book) => {
-                    { console.log(book.Title) }
-                    return (
-                        <Card style={{ width: '15rem', height: '30rem', marginBottom: '20px' }}>
-                            {console.log(book.Title)}
-                            <Link to={'./SingleBookInfo/' + book.Title}><Card.Img key={book.id} variant="top" src={book.imageUrl} style={{ height: '320px' }} /></Link>
-                            <Card.Body>
-                                <Card.Title>{book.Title}</Card.Title>
-                                <Card.Text>
-                                    Author: {book.Author}
-                                </Card.Text>
-                            </Card.Body>
-                        </Card>
-                    )
+                    if (book.id <= 7) {
+                        return (
+                            <Card style={{ width: '15rem', height: '36rem', marginBottom: '20px' }}>
+                                {console.log(book.Title)}
+                                <Link to={'./SingleBookInfo/' + book.id}><Card.Img key={book.id} variant="top" src={book.imageUrl} style={{ height: '320px' }} /></Link>
+                                <Card.Body>
+                                    <Card.Title>{book.Title}</Card.Title>
+                                    <Card.Text>
+                                        Author: {book.Author}
+                                    </Card.Text>
+                                </Card.Body>
+                                <Card.Footer className="text-muted">
+                                    <Button variant="outline-dark">Buy for ${book.PurchasePrice}</Button>
+                                    <Button variant="outline-dark">Rent for ${book.RentPrice}</Button>
+                                </Card.Footer>
+                            </Card>
+                        )
+                    }
+                    else return
                 })
                 }
             </div>
-        </div>
+        </>
     )
+
 }
 
 export default Home

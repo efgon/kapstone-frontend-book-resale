@@ -4,7 +4,6 @@ import SignUpPage from "./Views/SingUpPage";
 import NavBar from "./Components/Navbar";
 import { Route, Switch } from 'react-router-dom'
 import Home from './Views/Home'
-import './Style/app.css'
 import Footer from './Components/Footer'
 import SingleBookInfo from "./Views/SingleBookInfo";
 import Header from './Components/Header'
@@ -14,9 +13,16 @@ import Cart from './Views/Cart'
 import AddressPage from './Views/AddressPage'
 import OrderHistory from './Views/OderHistory'
 import AccountSettings from './Views/AccountSettings'
-import SearchNoResults from "./Views/SearchNoResults";
-import Allbooks from './Views/Allbooks'
+import AllBooksPage from './Views/AllBooksPage'
 import MyBooks from './Views/MyBooks'
+import { booksArray } from './Components/BooksArray'
+import './Style/app.css'
+import AllArtBooks from './Views/AllArtBooks'
+import AllCookingBooks from './Views/AllCookingBooks'
+import AllCodingBooks from './Views/AllCodingBooks'
+import AllMathBooks from './Views/AllMathBooks'
+import AllPetsBooks from './Views/AllPetsBooks'
+import AllHistoryBooks from './Views/AllHistoryBooks'
 
 function App() {
   return (
@@ -25,8 +31,8 @@ function App() {
       <NavBar />
       <Switch>
         <Route exact path='/' component={Home} />
-        <Route exact path='/SingleBookInfo' component={SingleBookInfo} />
-        <Route exact path='/Searchresult' component={Searchresult} />
+        <Route exact path='/SingleBookInfo/:id' render={(props) => <SingleBookInfo {...props} />} />
+        <Route exact path='/Searchresult/:id' component={Searchresult} />
         <Route exact path='/SignUp' component={SignUpPage} />
         <Route exact path='/UserProfile' component={UserProfilePage} />
         <Route exact path='/LogInPage' component={LoginPage} />
@@ -34,9 +40,15 @@ function App() {
         <Route exact path='/AccountSettings' component={AccountSettings} />
         <Route exact path='/OrderHistory' component={OrderHistory} />
         <Route exact path='/AddressPage' component={AddressPage} />
-        <Route exact path='/Allbooks' component={Allbooks} />
+        <Route exact path='/Allbooks' component={AllBooksPage} />
+        <Route exact path='/AllArtBooks' component={AllArtBooks} />
+        <Route exact path='/AllCodingBooks' component={AllCodingBooks} />
+        <Route exact path='/AllCookingBooks' component={AllCookingBooks} />
+        <Route exact path='/AllHistoryBooks' component={AllHistoryBooks} />
+        <Route exact path='/AllMathBooks' component={AllMathBooks} />
+        <Route exact path='/AllPetsBooks' component={AllPetsBooks} />
         <Route exact path='/MyBooks' component={MyBooks} />
-        <Route exact path='/Searchresult/:search' component={SearchNoResults} />
+
       </Switch>
       <Footer />
     </div>

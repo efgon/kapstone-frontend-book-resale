@@ -22,12 +22,13 @@ img {
     text-align: center;
 }
 .bookshelf {
-    height: 35rem;
+    /* height: 35rem; */
     width: 64rem;
     margin: auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    padding-bottom: 20px;
     
 }
 .bookInfo {
