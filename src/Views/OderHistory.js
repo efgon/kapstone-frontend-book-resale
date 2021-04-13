@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, Card, Button } from 'react-bootstrap'
+import { Card } from 'react-bootstrap'
 import bookImageOne from '../book img/interviewBook.jpeg'
 import bookImageTwo from '../book img/vanGogh.jpeg'
 import bookImageThree from '../book img/javascript.jpeg'

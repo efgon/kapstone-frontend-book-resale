@@ -14,7 +14,7 @@ function NavBar() {
     <>
       <Navbar bg="light" variant="light" expand="lg">
         <Navbar.Brand href="/">
-          <img className='bookLogo' src={Logo} onClick={<Link to='/' />} />
+          {/* <img className='bookLogo' src={Logo} onClick={<Link to='/' />} /> */}
           Second Chapter
         </Navbar.Brand>
         <Form inline>

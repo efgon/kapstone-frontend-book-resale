@@ -5,10 +5,6 @@ import ImageTwo from '../img/book image 2.jpeg'
 import ImageThree from '../img/book image 3.jpeg'
 import bannerImage from '../img/offerOfTheMonth.jpeg'
 import { Image, Button } from 'react-bootstrap'
-import bookImageOne from '../book img/interviewBook.jpeg'
-import bookImageTwo from '../book img/vanGogh.jpeg'
-import bookImageThree from '../book img/javascript.jpeg'
-import bookImageFour from '../book img/mathBook.jpeg'
 import { Link } from 'react-router-dom'
 import { BooksArray } from '../Components/BooksArray'
 import Card from 'react-bootstrap/Card'
@@ -18,7 +14,7 @@ function Home() {
 
     return (
         <div>
-            {/* <Link to='/Searchresult'>
+            <Link to='/Searchresult'>
                 <Image style={{ width: '700px', height: '100px', paddingBottom: '10px', paddingTop: '10px' }} src={bannerImage} fluid />
             </Link>
             <div className='homeCarousel'>
@@ -59,68 +55,26 @@ function Home() {
                 </Carousel>
             </div>
             <h1>Now Trending</h1>
-            <hr /> */}
-            {/* <div className='bookshelf'>
-                    <Card style={{ width: '15rem', height: '33rem' }}>
-                        <Card.Img variant="top" src={bookImageTwo} style={{ height: '320px' }} />
-                        <Card.Body>
-                            <Card.Title>Book Title</Card.Title>
-                            <Card.Text>
-                                Some quick example text to build on the Book title and make up the bulk of
-                                the card's content.
-    </Card.Text>
-                        </Card.Body>
-                    </Card>
-                    <Card style={{ width: '15rem', height: '33rem' }}>
-                        <Card.Img variant="top" src={bookImageOne} style={{ height: '320px' }} />
-                        <Card.Body>
-                            <Card.Title>Book Title</Card.Title>
-                            <Card.Text>
-                                Some quick example text to build on the Book title and make up the bulk of
-                                the card's content.
-    </Card.Text>
-                        </Card.Body>
-                    </Card>
-                    <Card style={{ width: '15rem', height: '33rem' }}>
-                        <Card.Img variant="top" src={bookImageThree} style={{ height: '320px' }} />
-                        <Card.Body>
-                            <Card.Title>Book title</Card.Title>
-                            <Card.Text>
-                                Some quick example text to build on the Book title and make up the bulk of
-                                the card's content.
-    </Card.Text>
-                        </Card.Body>
-                    </Card>
-                    <Card style={{ width: '15rem', height: '33rem' }}>
-                        <Link to='/SingleBookInfo'><Card.Img variant="top" src={bookImageFour} style={{ height: '320px' }} /></Link>
-                        <Card.Body>
-                            <Card.Title>Book title</Card.Title>
-                            <Card.Text>
-                                Some quick example text to build on the Book title and make up the bulk of
-                                the card's content.
-    </Card.Text>
-                        </Card.Body>
-                    </Card> */}
-            {/* </div> */}
-            {
-                BooksArray.map((book) => {
-                    { console.log(book.Title) }
-                    <h1>book.Title</h1>
-                    // (<div className='bookshelf'>
-                    //     <Card style={{ width: '15rem', height: '33rem' }}>
-                    //         {console.log(book.Title)}
-                    //         <Card.Img variant="top" src={book.imageUrl} style={{ height: '320px' }} />
-                    //         <Card.Body>
-                    //             <Card.Title>{book.Title}</Card.Title>
-                    //             <Card.Text>
-                    //                 {book.Description}
-                    //             </Card.Text>
-                    //         </Card.Body>
+            <hr />
 
-                    //     </Card>
-                    // </div>)
+            <div className='bookshelf'>
+                {BooksArray.map((book) => {
+                    { console.log(book.Title) }
+                    return (
+                        <Card style={{ width: '15rem', height: '30rem', marginBottom: '20px' }}>
+                            {console.log(book.Title)}
+                            <Link to={'./SingleBookInfo/' + book.Title}><Card.Img key={book.id} variant="top" src={book.imageUrl} style={{ height: '320px' }} /></Link>
+                            <Card.Body>
+                                <Card.Title>{book.Title}</Card.Title>
+                                <Card.Text>
+                                    Author: {book.Author}
+                                </Card.Text>
+                            </Card.Body>
+                        </Card>
+                    )
                 })
-            }
+                }
+            </div>
         </div>
     )
 }
