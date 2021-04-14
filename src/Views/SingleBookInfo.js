@@ -2,14 +2,9 @@ import React from 'react'
 import { Image } from 'react-bootstrap'
 import bookImage from '../book img/mathBook.jpeg'
 import { Card, Button } from 'react-bootstrap'
-<<<<<<< HEAD
-
-function SingleBookInfo() {
-=======
 import booksArray from '../Components/BooksArray'
 
 function SingleBookInfo(props) {
->>>>>>> dev-books-page-implementation
     return (
         <div className='bookInfo' style={{ marginTop: '80px' }}>
             <Image src={bookImage} thumbnail style={{ height: '320px', width: '180px' }} />
