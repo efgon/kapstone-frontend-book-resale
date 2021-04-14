@@ -14,9 +14,13 @@ function LoginPage(props) {
   const user =useStore((state)=> state.user)
 
   const handleLogin = (e) =>{
+    console.log(formData.email)
+    console.log(formData.password)
+   
     e.preventDefault();
     loginRequest(formData.email, formData.password).then((userData)=>{
-      window.localStorage.setItem("user",JSON.stringify(userData));
+      console.log(userData)
+      localStorage.setItem("user",JSON.stringify(userData));
     })
   }
 
@@ -36,7 +40,7 @@ function LoginPage(props) {
   function handleMessage(e){
     console.log(e)
   }
- const {inputValue}= props
+//  const {inputValue}= props
   return (
     <>
     
@@ -47,7 +51,9 @@ function LoginPage(props) {
           <Form.Label>Email address</Form.Label>
           <Form.Control 
           type="email" 
+          name="email"
           placeholder="Enter email" 
+          value={formData.email}
           required 
           onChange={handleChange}
           />
@@ -58,7 +64,9 @@ function LoginPage(props) {
           <Form.Label>Password</Form.Label>
           <Form.Control 
           type="password" 
+          name="password"
           placeholder="Password"
+          value={formData.password}
           required 
           onChange={handleChange}
           />

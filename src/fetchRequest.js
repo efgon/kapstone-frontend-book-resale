@@ -1,15 +1,14 @@
-export const baseURL = "https://localhost:4000/";
+export const baseURL = "http://localhost:4000/";
 
 export const loginRequest = (email, password) => {
     return fetch(baseURL + "login", {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        // headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*", Accept: "application/json"},
         body: JSON.stringify({
             email,
             password,
-        }),
-    }).then((res) => res.json)
-    .then((res) => console.log(res))
+        })
+    }).then((res) => res.json())
 };
 
 export const logoutRequest = (token) => {
