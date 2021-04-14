@@ -1,4 +1,4 @@
-expost const baseURL = ;
+export const baseURL = ;
 
 export const loginRequest = (email, password) => {
     return fetch(baseURL + "auth/login", {
