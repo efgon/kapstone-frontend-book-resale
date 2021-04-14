@@ -3,12 +3,23 @@ import { Navbar, Nav, Button, Form, FormControl, NavDropdown } from "react-boots
 import cart from "../img/shoppingcart.png";
 import { Link } from 'react-router-dom'
 import Logo from '../img/download.png'
+import { useStore, LOGOUT } from '../Store/store'
+import {logoutRequest} from '../fetchRequest' 
+
 
 function NavBar() {
   const [loggedIn, setLoggedIn] = useState(false)
   const [cartItems, setCartItems] = useState(0)
 
-  const logInOut = () => { setLoggedIn(!loggedIn) }
+  const user = useStore((state) => state.user);
+  const dispatch = useStore((state) => state.dispatch);
+
+// = () => { setLoggedIn(!loggedIn) }
+
+  const logout = (e) => {
+    logoutRequest(user.token).then(() => dispatch({ type: "LOGOUT" }));
+    window.localStorage.clear();
+  };
 
   return (
     <>
@@ -19,15 +30,15 @@ function NavBar() {
         </Navbar.Brand>
         <Form inline>
         </Form>
-        <NavDropdown title={loggedIn ? 'Hi, Paul' : 'My Account'} id="basic-nav-dropdown" style={{ marginLeft: '70%' }}>
+        <NavDropdown title={loggedIn ? `Hi, ${user.email}` : 'My Account'} id="basic-nav-dropdown" style={{ marginLeft: '70%' }}>
           <NavDropdown.Item href="#action/3.4">
             <div className='signInButton'>
-              {!loggedIn ? <Button variant="outline-dark" onClick={logInOut}>
+              {!loggedIn ? <Button variant="outline-dark">
                 <Link to='/LogInPage' style={{ color: 'black' }}>
                   Sign In
                 </Link>
               </Button> :
-                <Button variant='outline-dark' onClick={logInOut}>Log Out</Button>
+                <Button variant='outline-dark' onClick={logout}>Log Out</Button>
               }
             </div>
           </NavDropdown.Item>
