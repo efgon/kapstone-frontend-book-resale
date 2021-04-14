@@ -1,14 +1,10 @@
 import React from 'react'
-import { Image, Card, Button } from 'react-bootstrap'
-import bookImageOne from '../book img/interviewBook.jpeg'
-import bookImageTwo from '../book img/vanGogh.jpeg'
-import bookImageThree from '../book img/javascript.jpeg'
-import bookImageFour from '../book img/mathBook.jpeg'
 import { Link } from 'react-router-dom'
 import { BooksArray } from '../Components/BooksArray'
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
 
-function Searchresult() {
-
+function AllBooksPage() {
     return (
         <>
             <h3>All Books</h3>
@@ -17,7 +13,7 @@ function Searchresult() {
                 {BooksArray.map((book) => {
                     { console.log(book.Title) }
                     return (
-                        <Card style={{ width: '15rem', height: '31.5rem', marginBottom: '20px' }}>
+                        <Card style={{ width: '15rem', height: '36rem', marginBottom: '20px' }}>
                             {console.log(book.Title)}
                             <Link to={'./SingleBookInfo/' + book.id}><Card.Img key={book.id} variant="top" src={book.imageUrl} style={{ height: '320px' }} /></Link>
                             <Card.Body>
@@ -26,6 +22,10 @@ function Searchresult() {
                                     Author: {book.Author}
                                 </Card.Text>
                             </Card.Body>
+                            <Card.Footer className="text-muted">
+                                <Button variant="outline-dark">Buy for ${book.PurchasePrice}</Button>
+                                <Button variant="outline-dark">Rent for ${book.RentPrice}</Button>
+                            </Card.Footer>
                         </Card>
                     )
                 })
@@ -35,4 +35,4 @@ function Searchresult() {
     )
 }
 
-export default Searchresult
+export default AllBooksPage

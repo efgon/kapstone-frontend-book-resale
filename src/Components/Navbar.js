@@ -82,12 +82,12 @@ function NavBar() {
       <Navbar className='navbar3' bg="light" variant="light" style={{ paddingBottom: '20px' }}>
         <Nav className="mr-auto" style={{ margin: 'auto' }}>
           <Nav.Link href="/Allbooks">| All |</Nav.Link>
-          <Nav.Link href="/Searchresults/Coding">| Coding |</Nav.Link>
-          <Nav.Link href="/Searchresults/Art">| Art |</Nav.Link>
-          <Nav.Link href="/Searchresults/History">| History |</Nav.Link>
-          <Nav.Link href="/Searchresults/Math">| Math |</Nav.Link>
-          <Nav.Link href="/Searchresults/Pets">| Pets |</Nav.Link>
-          <Nav.Link href="/Searchresults/Cooking">| Cooking |</Nav.Link>
+          <Nav.Link href="/AllArtBooks">| Art |</Nav.Link>
+          <Nav.Link href="/AllCodingBooks">| Coding |</Nav.Link>
+          <Nav.Link href="/AllCookingBooks">| Cooking |</Nav.Link>
+          <Nav.Link href="/AllHistoryBooks">| History |</Nav.Link>
+          <Nav.Link href="/AllMathBooks">| Math |</Nav.Link>
+          <Nav.Link href="/AllPetsBooks">| Pets |</Nav.Link>
         </Nav>
         <Form inline>
         </Form>
