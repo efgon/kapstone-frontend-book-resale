@@ -1,18 +1,19 @@
-export const baseURL = "";
+export const baseURL = "https://localhost:4000/";
 
 export const loginRequest = (email, password) => {
-    return fetch(baseURL + "auth/login", {
+    return fetch(baseURL + "login", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
             email,
             password,
         }),
     }).then((res) => res.json)
+    .then((res) => console.log(res))
 };
 
 export const logoutRequest = (token) => {
-    return fetch(baseURL + "auth/logout", {
+    return fetch(baseURL + "logout", {
       headers: { Authorization: "Bearer " + token },
     }).then((res) => res.json());
   };
@@ -21,14 +22,14 @@ export const getBooks = () => {
     return fetch(baseURL + "books").then((res) => res.json());
   };  
 
-export const createUser = async (email, firstname, lastname, password) => {
+export const createUser = async (email, firstName, lastName, password) => {
     const res = await fetch(baseURL + "users", {
       method: "POST",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify({
         email, 
-        firstname, 
-        lastname,
+        firstName, 
+        lastName,
         password,
       }),
     });
