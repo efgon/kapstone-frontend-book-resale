@@ -8,7 +8,7 @@ export const BooksArray = [
         Author: 'Marijn Haverbeke ',
         Category: 'Coding',
         Tags: ['JavaScript', 'Coding', 'HTML', 'CSS'],
-        imageUrl: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Feloquentjavascript.net%2F&psig=AOvVaw2NEV71QJi4YLRJNkMHjSlz&ust=1618343390064000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCJiFiYm9-e8CFQAAAAAdAAAAABAD',
+        imageUrl: 'https://prodimage.images-bn.com/pimages/9781593279509_p0_v2_s550x406.jpg',
         PurchasePrice: 29.99,
         RentPrice: 14.99,
         SellPrice: 12.00,
@@ -243,7 +243,7 @@ export const BooksArray = [
         Author: `Elie Wiesel`,
         Category: `History`,
         Tags: ['History', 'Biography'],
-        imageUrl: '',
+        imageUrl: 'https://prodimage.images-bn.com/pimages/9780374500016_p0_v7_s550x406.jpg',
         PurchasePrice: 19.99,
         RentPrice: 14.99,
         SellPrice: 7.88,
@@ -258,7 +258,7 @@ export const BooksArray = [
         Category: "Art",
         Tags: ["Art", "Painting", "Van Gogh"],
         imageUrl:
-            "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.barnesandnoble.com%2Fw%2Fmagazine-art-in-america-one-year-subscription%2F15360855&psig=AOvVaw3QvX9M8R7qcrOy1JdonNk-&ust=1618344432926000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCICR5PrA-e8CFQAAAAAdAAAAABAE",
+            "https://prodimage.images-bn.com/pimages/9783836557153_p0_v2_s550x406.jpg",
         PurchasePrice: 45.0,
         RentPrice: 22.4,
         SellPrice: 17.0,
@@ -274,7 +274,7 @@ export const BooksArray = [
         Category: "Art",
         Tags: ["Art", "Painting", "Art History", "Picasso"],
         imageUrl:
-            "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.amazon.com%2FPablo-Picasso-Masters-Rosalind-Ormiston%2Fdp%2F379138628X&psig=AOvVaw0PlIUHhR0Ss0WrVxzZKwn5&ust=1618345396397000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIjspMbE-e8CFQAAAAAdAAAAABAF",
+            "https://prodimage.images-bn.com/pimages/9783791386287_p0_v1_s550x406.jpg",
         PurchasePrice: 14.95,
         RentPrice: 9.0,
         SellPrice: 7.0,
@@ -284,12 +284,12 @@ export const BooksArray = [
     },
     {
         id: 14,
-        Title: "Add to Wishlist A Water Color Dream: The Many Lives of Irene Tsu",
+        Title: "A Water Color Dream: The Many Lives of Irene Tsu",
         Author: "Irene Tsu",
         Category: "Art",
         Tags: ["Art", "Painting", "Art History", "Water Color"],
         imageUrl:
-            "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.amazon.com%2FWater-Color-Dream-Lives-Irene%2Fdp%2F1629335622&psig=AOvVaw2Qke38Hdid6jtm6Deiy8dQ&ust=1618345679378000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIir783F-e8CFQAAAAAdAAAAABAD",
+            "https://prodimage.images-bn.com/pimages/9781629335629_p0_v1_s550x406.jpg",
         PurchasePrice: 28.0,
         RentPrice: 20.0,
         SellPrice: 15.0,
@@ -306,7 +306,7 @@ export const BooksArray = [
         Category: "Art",
         Tags: ["Art", "Painting", "Art History", "Mona Lisa"],
         imageUrl:
-            "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.amazon.com%2FAnnotated-Mona-Lisa-Third-Prehistoric%2Fdp%2F1449482139&psig=AOvVaw3sTOtpopPeLyFXVd7u-ZKG&ust=1618345822039000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCKjij5TG-e8CFQAAAAAdAAAAABAG",
+            "https://prodimage.images-bn.com/pimages/9781449482138_p0_v2_s550x406.jpg",
         PurchasePrice: 29.99,
         RentPrice: 19.99,
         SellPrice: 15.0,
@@ -321,7 +321,7 @@ export const BooksArray = [
         Category: "Art",
         Tags: ["Art", "Painting", "Art History", "Modern Art"],
         imageUrl:
-            "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.amazon.com%2FModern-Artists-You-Should-Know%2Fdp%2F3791383388&psig=AOvVaw0e8n7NM6jRilwK2breHl7x&ust=1618346050242000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCKC09P7G-e8CFQAAAAAdAAAAABAD",
+            "https://prodimage.images-bn.com/pimages/9783791383385_p0_v2_s550x406.jpg",
         PurchasePrice: 19.95,
         RentPrice: 15.95,
         SellPrice: 10.95,
@@ -330,12 +330,12 @@ export const BooksArray = [
     },
     {
         id: 17,
-        Title: "Add to Wishlist The Paintings That Revolutionized Art",
+        Title: "The Paintings That Revolutionized Art",
         Author: "Claudia Stauble (Editor), Julie Kiefer (Editor)",
         Category: "Art",
         Tags: ["Art", "Painting", "Art History"],
         imageUrl:
-            "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.amazon.com%2FPaintings-That-Revolutionized-Art%2Fdp%2F3791381539&psig=AOvVaw24FruCl0enNMV8Ev6giB48&ust=1618346336057000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCKi2iYfI-e8CFQAAAAAdAAAAABAD",
+            "https://prodimage.images-bn.com/pimages/9783791381534_p0_v2_s550x406.jpg",
         PurchasePrice: 24.95,
         RentPrice: 19.95,
         SellPrice: 13.95,
@@ -349,7 +349,7 @@ export const BooksArray = [
         Category: "Art",
         Tags: ["Art", "Painting", "Art History"],
         imageUrl:
-            "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.amazon.com%2FGreat-Paintings-DK%2Fdp%2F1465474390&psig=AOvVaw04loxNLZdD3bAJ5VOiHsxz&ust=1618346364362000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCMjk0ZfI-e8CFQAAAAAdAAAAABAE",
+            "https://prodimage.images-bn.com/pimages/9781465474391_p0_v1_s550x406.jpg",
         PurchasePrice: 24.99,
         RentPrice: 18.99,
         SellPrice: 14.99,
@@ -359,19 +359,4 @@ export const BooksArray = [
         The book also includes brief biographies of the artists, which provides the background to each artwork and helps readers paint their own picture of the historical and social context behind each masterpiece.
         Whether you are young or old, an art student or a fan, simply turn the pages of Great Paintings to go on your personal gallery tour of some of the world's best-loved paintings.`,
     },
-    {
-        id: 18,
-        Title: "Great Paintings",
-        Author: "DK",
-        Category: "Art",
-        Tags: ["Art", "Painting", "Art History"],
-        imageUrl:
-            "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.amazon.com%2FGreat-Paintings-DK%2Fdp%2F1465474390&psig=AOvVaw04loxNLZdD3bAJ5VOiHsxz&ust=1618346364362000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCMjk0ZfI-e8CFQAAAAAdAAAAABAE",
-        PurchasePrice: 24.99,
-        RentPrice: 18.99,
-        SellPrice: 14.99,
-        Inventory: 3,
-        Description: '',
-    }
-
 ]
