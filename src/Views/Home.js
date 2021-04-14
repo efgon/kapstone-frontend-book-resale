@@ -12,7 +12,7 @@ import Card from 'react-bootstrap/Card'
 function Home() {
 
     return (
-        <>
+        <div className='home'>
             <Link to='/Searchresult'>
                 <Image style={{ width: '700px', height: '100px', paddingBottom: '10px', paddingTop: '10px' }} src={bannerImage} fluid />
             </Link>
@@ -80,7 +80,7 @@ function Home() {
                 })
                 }
             </div>
-        </>
+        </div>
     )
 
 }
