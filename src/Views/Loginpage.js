@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Form, Button } from "react-bootstrap";
-import {useStore} from "../Store/store"
+import {useStore, LOGIN} from "../Store/store"
 import { loginRequest } from "../fetchRequest";
 
+
 function LoginPage(props) {
-  // const dispatch = useStore((state) => state.dispatch)
+  const dispatch = useStore((state) => state.dispatch)
 
   const [formData, setFormData]= useState({
     email: "",
@@ -16,11 +17,11 @@ function LoginPage(props) {
   const handleLogin = (e) =>{
     console.log(formData.email)
     console.log(formData.password)
-   
     e.preventDefault();
     loginRequest(formData.email, formData.password).then((userData)=>{
       console.log(userData)
       localStorage.setItem("user",JSON.stringify(userData));
+      dispatch({ type: LOGIN, payload: userData })
     })
   }
 

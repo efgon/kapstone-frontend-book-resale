@@ -1,11 +1,15 @@
 import create from "zustand";
 import { devtools, redux } from "zustand/middleware";
 
-let initState = { user: { token: ''}, book:[]};
-
+const initState = { user: {token: '', email:''}, book:[] };
+// firstName: '',lastName: '',email:'', creditBalance: 50.00
 export const LOGIN = "LOGIN"
 export const LOGOUT = "LOGOUT"
 export const GET_USER = "GET_USER"
+export const FIRSTNAME = "FIRSTNAME"
+export const LASTNAME = "LASTNAME"
+export const CREDITBALANCE = "CREDITBALANCE"
+export const UPDATEUSER = "UPDATEUSER"
 
 
 const reducer = (state, action) => {
@@ -15,7 +19,15 @@ const reducer = (state, action) => {
         case LOGOUT:
             return { user: {} };
         case GET_USER:
-            return{ ...state, user: action.payload }  
+            return{ ...state, user: action.payload };  
+        case  FIRSTNAME:
+            return {...state, user: action.payload };
+        case  LASTNAME:
+            return {...state, user: action.payload };
+        case  CREDITBALANCE:
+            return {...state, user: action.payload }; 
+        case UPDATEUSER:
+            return{...state, user: action.payload};
             default:
       return state;      
     }

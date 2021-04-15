@@ -15,12 +15,13 @@ function SignUpPage() {
   const handleSubmit = (e) => {
     console.log(userData.firstName, userData.lastName, userData.email , userData.password)
     e.preventDefault();
-    createUser(userData.firstName, userData.lastName, userData.email , userData.password)   
-  };
+    createUser(userData.firstName, userData.lastName, userData.email , userData.password)
+    }
+  
 
   const handleChange = (e) => {
-    let inputName = e.target.name;
-    let inputValue = e.target.value;
+    const inputName = e.target.name;
+    const inputValue = e.target.value;
 
     setUserdata((state) => ({ ...state, [inputName]: inputValue }));
   };
@@ -38,19 +39,20 @@ function SignUpPage() {
           <Form.Group as={Col} >
             <Form.Control 
             type="text"
-             name="firstname"
+             name="firstName"
              placeholder="First name"
+             onChange={handleChange}
              value={userData.firstName}
              required
-             onChange={handleChange}
+            
             />
             </Form.Group>
           </Col>
           <Col>
           <Form.Group as={Col} >
             <Form.Control 
-              type="email"
-              name="lastname"
+              type="text"
+              name="lastName"
               placeholder="Last name" 
               value={userData.lastName}
               required

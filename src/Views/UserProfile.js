@@ -1,12 +1,39 @@
-import React from 'react'
+import React,{useState} from 'react'
 import Card from 'react-bootstrap/Card'
 import { Link } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
+import { useStore } from "../Store/store";
+import { patchUser } from '../fetchRequest'
+
+
 
 function UserProfile() {
+
+    const userInfo = useStore((state) => state.user);
+    const [user, setUser] = useState({firstName: '',lastName: '', creditBalance: 50.00});
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        const newUserInfo = {
+        //   firstName,
+        //   lastName,
+        };
+        patchUser(userInfo.token, newUserInfo).then((data) => {
+          console.log(data);
+          setUser(data.user);
+        });
+      }
+
+      const handleChange = (e) => {
+        const inputName = e.target.name;
+        const inputValue = e.target.value;
+    
+        setUser((state) => ({ ...state, [inputName]: inputValue }));
+      };
+
     return (
         <>
-            <h1>Paul's Page</h1>
+            <h1>{userInfo.firstName}'s Profile</h1>
             <hr />
             <div className='userProfile'>
 
@@ -21,7 +48,7 @@ function UserProfile() {
                             <br />
                             Email:
                     </Card.Text>
-                        <Button variant="outline-dark">
+                        <Button onSubmit={handleSubmit} variant="outline-dark">
                             <Link to='/AccountSettings' style={{ color: 'black' }}>Edit Account Settings</Link>
                         </Button>
                     </Card.Body>

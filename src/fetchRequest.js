@@ -21,36 +21,39 @@ export const getBooks = () => {
     return fetch(baseURL + "books").then((res) => res.json());
   };  
 
-export const createUser = async (email, firstName, lastName, password) => {
+export const createUser = async (firstName, lastName, email, password) => {
     const res = await fetch(baseURL + "users", {
       method: "POST",
-    //   headers: { "Content-type": "application/json" },
+      headers: { "Content-type": "application/json" },
       body: JSON.stringify({
-        email, 
         firstName, 
         lastName,
+        email, 
         password,
       }),
-    });
-    if (!res.ok) {
-      throw new Error("bad response", res);
-    }
-    const res_1 = res;
-    const data = await res_1.json();
-    return console.log(data);
+    })
+    .then((res) => res.json())
+    
+    // if (!res.ok) {
+    //   throw new Error("bad response", res);
+    // }
+    // const res_1 = res;
+    // const data = await res_1.json();
+
+    // return console.log(data);
   };  
 
 export const getUser = (email) => {
     return fetch(baseURL + `users/${email}`).then((res) => res.json());
   };
 
-export const patchUser = (token, email, newUserInfo) => {
+export const patchUser = (token, firstName,lastName, email) => {
     return fetch(baseURL + `users/${email}`, {
       method: "PATCH",
       headers: {
         Authorization: "Bearer " + token,
-        "Content-Type": "application/json",
+        // "Content-Type": "application/json",
       },
-      body: JSON.stringify(newUserInfo),
+      body: JSON.stringify({firstName,lastName, email}),
     }).then((res) => res.json());
   };  
