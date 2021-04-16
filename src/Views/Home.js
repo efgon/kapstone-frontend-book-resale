@@ -3,7 +3,7 @@ import Carousel from 'react-bootstrap/Carousel'
 import ImageOne from '../img/book image 1.jpeg'
 import ImageTwo from '../img/book image 2.jpeg'
 import ImageThree from '../img/book image 3.jpeg'
-import bannerImage from '../img/offerOfTheMonth.jpeg'
+import bannerImage from '../book img/billy.jpeg'
 import { Image, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { BooksArray } from '../Components/BooksArray'
@@ -13,9 +13,12 @@ function Home() {
 
     return (
         <div className='home'>
-            <Link to='/Searchresult'>
-                <Image style={{ width: '700px', height: '100px', paddingBottom: '10px', paddingTop: '10px' }} src={bannerImage} fluid />
-            </Link>
+            <div className='missingPerson' >
+                <h4 style={{ color: 'red' }}>Have you seen me?</h4>
+                <Image style={{ width: '500px', height: '200px', paddingBottom: '10px', paddingTop: '10px' }} src={bannerImage} fluid />
+                <h4>Last seen at Kenzie Academy</h4>
+                <h4>If so please do not return!</h4>
+            </div>
             <div className='homeCarousel'>
                 <Carousel fade>
                     <Carousel.Item interval={4000}>
