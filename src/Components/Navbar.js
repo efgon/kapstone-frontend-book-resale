@@ -4,17 +4,15 @@ import cart from "../img/shoppingcart.png";
 import { Link } from 'react-router-dom'
 import Logo from '../img/download.png'
 import { useStore, LOGOUT } from '../Store/store'
-import {logoutRequest} from '../fetchRequest' 
+import { logoutRequest } from '../fetchRequest'
 
 
 function NavBar() {
-  const [loggedIn, setLoggedIn] = useState(false)
-  const [cartItems, setCartItems] = useState(0)
 
   const user = useStore((state) => state.user);
   const dispatch = useStore((state) => state.dispatch);
 
-// = () => { setLoggedIn(!loggedIn) }
+  // = () => { setuser.token(!user.token) }
 
   const logout = (e) => {
     logoutRequest(user.token).then(() => dispatch({ type: "LOGOUT" }));
@@ -30,10 +28,10 @@ function NavBar() {
         </Navbar.Brand>
         <Form inline>
         </Form>
-        <NavDropdown title={loggedIn ? `Hi, ${user.email}` : 'My Account'} id="basic-nav-dropdown" style={{ marginLeft: '70%' }}>
+        <NavDropdown title={user.token ? `Hi, ${user.email}` : 'My Account'} id="basic-nav-dropdown" style={{ marginLeft: '70%' }}>
           <NavDropdown.Item href="#action/3.4">
             <div className='signInButton'>
-              {!loggedIn ? <Button variant="outline-dark">
+              {!user.token ? <Button variant="outline-dark">
                 <Link to='/LogInPage' style={{ color: 'black' }}>
                   Sign In
                 </Link>
@@ -42,39 +40,40 @@ function NavBar() {
               }
             </div>
           </NavDropdown.Item>
-          {loggedIn === false ?
+          {user.token ?
             <NavDropdown.Item href="#action/3.1">
               <Link to='/SignUp' style={{ color: 'black' }}>Create an Account</Link>
             </NavDropdown.Item> : ''}
           <NavDropdown.Divider />
-          {loggedIn ?
+          {user.token ?
             <NavDropdown.Item href="#action/3.1">
               <Link to='/UserProfile' style={{ color: 'black' }}>My Page</Link>
             </NavDropdown.Item>
             : ''}
-          {loggedIn ?
+          {user.token ?
             <NavDropdown.Item href="#action/3.1">
               <Link to='/MyBooks' style={{ color: 'black' }}>My Books</Link>
             </NavDropdown.Item>
             : ''}
-          {loggedIn ?
+          {user.token ?
             <NavDropdown.Item>
               <Link to='/OrderHistory' style={{ color: 'black' }}>
                 Order History
             </Link>
             </NavDropdown.Item>
             : ''}
-          {loggedIn ?
+          {user.token ?
             <NavDropdown.Item href="#action/3.4">Credit Balance <h5>$42.76</h5> </NavDropdown.Item>
             : ''}
         </NavDropdown>
 
-        {loggedIn ? <Nav.Link href="/shoppingCart">
+        {user.token ? <Nav.Link href="/shoppingCart">
           <img className='cart' src={cart} onClick={<Link to='/ShoppingCart' />} />
         </Nav.Link>
           : ''}
-        {loggedIn ?
-          <h5>{cartItems}</h5>
+        {user.token ?
+          //hard coded cart items
+          <h5>0</h5>
           : ''}
       </Navbar>
 
