@@ -1,8 +1,8 @@
 import create from "zustand";
 import { devtools, redux } from "zustand/middleware";
 
-const initState = { user: {token: '', email:''}, book:[] };
-// firstName: '',lastName: '',email:'', creditBalance: 50.00
+const initState = { user: JSON.parse(localStorage.getItem("user")) || {token: '', email:'', firstName: '',lastName: '', creditBalance: 50.00
+}, book:[] };
 export const LOGIN = "LOGIN"
 export const LOGOUT = "LOGOUT"
 export const GET_USER = "GET_USER"
@@ -17,6 +17,7 @@ const reducer = (state, action) => {
         case LOGIN:
             return{ user: action.payload };
         case LOGOUT:
+            localStorage.removeItem('user')
             return { user: {} };
         case GET_USER:
             return{ ...state, user: action.payload };  

@@ -9,7 +9,8 @@ function Header() {
         <div>
             <Carousel style={{ margin: 'auto', height: '80px', width: '900px' }}>
                 <Carousel.Item interval={7000}>
-                    <img
+                    <img 
+                    // onClick={()=> window.location.assign("www.google.com")}
 
                         style={{ height: '80px' }}
                         className="d-block w-100"

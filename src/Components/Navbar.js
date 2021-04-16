@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom'
 import Logo from '../img/download.png'
 import { useStore, LOGOUT } from '../Store/store'
 import { logoutRequest } from '../fetchRequest'
+import { useHistory } from "react-router-dom";
+
 
 
 function NavBar() {
@@ -12,13 +14,16 @@ function NavBar() {
   const user = useStore((state) => state.user);
   const dispatch = useStore((state) => state.dispatch);
 
-  // = () => { setuser.token(!user.token) }
-
+  const history = useHistory();
+  const t=(e)=>history.push("/")
   const logout = (e) => {
-    logoutRequest(user.token).then(() => dispatch({ type: "LOGOUT" }));
-    window.localStorage.clear();
+    logoutRequest(user.accessToken).then(() => dispatch({ type: "LOGOUT" }));
+    localStorage.removeItem("user");
+    t();
+    window.location.reload();
   };
 
+  console.log(user)
   return (
     <>
       <Navbar bg="light" variant="light" expand="lg">
@@ -28,50 +33,51 @@ function NavBar() {
         </Navbar.Brand>
         <Form inline>
         </Form>
-        <NavDropdown title={user.token ? `Hi, ${user.email}` : 'My Account'} id="basic-nav-dropdown" style={{ marginLeft: '70%' }}>
+        <NavDropdown title={user.accessToken ? `Hi, ${user.user.firstName}` : 'My Account'} id="basic-nav-dropdown" style={{ marginLeft: '70%' }}>
           <NavDropdown.Item href="#action/3.4">
             <div className='signInButton'>
-              {!user.token ? <Button variant="outline-dark">
+              {!user.accessToken ? <Button variant="outline-dark">
                 <Link to='/LogInPage' style={{ color: 'black' }}>
                   Sign In
                 </Link>
+                
               </Button> :
                 <Button variant='outline-dark' onClick={logout}>Log Out</Button>
               }
             </div>
           </NavDropdown.Item>
-          {user.token ?
+          {!user.accessToken ?
             <NavDropdown.Item href="#action/3.1">
               <Link to='/SignUp' style={{ color: 'black' }}>Create an Account</Link>
             </NavDropdown.Item> : ''}
           <NavDropdown.Divider />
-          {user.token ?
+          {user.accessToken ?
             <NavDropdown.Item href="#action/3.1">
               <Link to='/UserProfile' style={{ color: 'black' }}>My Page</Link>
             </NavDropdown.Item>
             : ''}
-          {user.token ?
+          {user.accessToken ?
             <NavDropdown.Item href="#action/3.1">
               <Link to='/MyBooks' style={{ color: 'black' }}>My Books</Link>
             </NavDropdown.Item>
             : ''}
-          {user.token ?
+          {user.accessToken ?
             <NavDropdown.Item>
               <Link to='/OrderHistory' style={{ color: 'black' }}>
                 Order History
             </Link>
             </NavDropdown.Item>
             : ''}
-          {user.token ?
-            <NavDropdown.Item href="#action/3.4">Credit Balance <h5>$42.76</h5> </NavDropdown.Item>
+          {user.accessToken ?
+            <NavDropdown.Item href="#action/3.4">Credit Balance <h5>${user.user.creditBalance}</h5> </NavDropdown.Item>
             : ''}
         </NavDropdown>
 
-        {user.token ? <Nav.Link href="/shoppingCart">
+        {user.accessToken ? <Nav.Link href="/shoppingCart">
           <img className='cart' src={cart} onClick={<Link to='/ShoppingCart' />} />
         </Nav.Link>
           : ''}
-        {user.token ?
+        {user.accessToken ?
           //hard coded cart items
           <h5>0</h5>
           : ''}
