@@ -9,8 +9,23 @@ const initState = {
     lastName: "",
     creditBalance: 50.0,
   },
-  book: [],
+  book: [
+    {
+      title: "",
+      subtitle: "",
+      author: "",
+      category: "",
+      tags: "",
+      imageURL: "",
+      purchasePrice: 0,
+      rentPrice: 0,
+      sellPrice: 0,
+      inventory: 0,
+      description: "",
+    },
+  ],
 };
+
 export const LOGIN = "LOGIN";
 export const LOGOUT = "LOGOUT";
 export const GET_USER = "GET_USER";
@@ -19,6 +34,9 @@ export const LASTNAME = "LASTNAME";
 export const CREDITBALANCE = "CREDITBALANCE";
 export const UPDATEUSER = "UPDATEUSER";
 export const SIGNUP = "SIGNUP";
+
+export const ADDBOOK = "ADDBOOK";
+export const REMOVEBOOK = "REMOVEBOOK";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -39,6 +57,10 @@ const reducer = (state, action) => {
       return { ...state, user: action.payload };
     case UPDATEUSER:
       return { ...state, user: { ...state.user, user: action.payload } };
+    case ADDBOOK:
+      return { ...state, book: action.payload };
+    case REMOVEBOOK:
+      return { ...state, book: action.payload };
     default:
       return state;
   }

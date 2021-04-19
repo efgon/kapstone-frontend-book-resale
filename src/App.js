@@ -34,9 +34,11 @@ function App() {
         <Route
           exact
           path="/SingleBookInfo/:id"
-          render={(props) => <SingleBookInfo {...props} />}
+          render={(props) => (
+            <SingleBookInfo {...props} id={props.match.params.id} />
+          )}
         />
-        <Route exact path="/Searchresult/:id" component={Searchresult} />
+        <Route exact path="/Searchresult" component={Searchresult} />
         <Route exact path="/SignUp" component={SignUpPage} />
         <Route exact path="/UserProfile" component={UserProfilePage} />
         <Route exact path="/LogInPage" component={LoginPage} />
