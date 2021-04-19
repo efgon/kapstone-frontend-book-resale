@@ -25,12 +25,12 @@ function UserProfile() {
     });
   }
 
-  const handleChange = (e) => {
-    const inputName = e.target.name;
-    const inputValue = e.target.value;
+  // const handleChange = (e) => {
+  //   const inputName = e.target.name;
+  //   const inputValue = e.target.value;
 
-    setUser((state) => ({ ...state, [inputName]: inputValue }));
-  };
+  //   setUser((state) => ({ ...state, [inputName]: inputValue }));
+  // };
 
   return (
     <>

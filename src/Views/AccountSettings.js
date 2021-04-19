@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Form, Button, Col } from "react-bootstrap";
 import { UPDATEUSER, useStore, GET_USER } from "../Store/store";
-import { patchUser, getUser } from "../fetchRequest";
+import { patchUser, deleteUser, logoutRequest } from "../fetchRequest";
 import { useHistory } from "react-router-dom";
 
 function AccountSettings() {
@@ -13,6 +13,7 @@ function AccountSettings() {
     email: "",
   });
   const history = useHistory();
+  console.log(userInfo);
 
   function handleSubmit(e) {
     const reRoute = (e) => history.push("/UserProfile");
@@ -34,6 +35,15 @@ function AccountSettings() {
     const inputName = e.target.name;
     const inputValue = e.target.value;
     setUserForm((state) => ({ ...state, [inputName]: inputValue }));
+  };
+
+  const handleDelete = (e) => {
+    const reRoute = (e) => history.push("/");
+    e.preventDefault();
+    localStorage.removeItem("user");
+    deleteUser(userInfo.user.email, userInfo.accessToken);
+    dispatch({ type: "LOGOUT" });
+    reRoute();
   };
 
   return (
@@ -72,26 +82,15 @@ function AccountSettings() {
               Submit
             </Button>
           </Form>
-        </div>
-        {/* <hr /> */}
-        {/* <div className="accountSettings">
-          <Form
-            style={{ width: "40rem", marginTop: "30px", marginBottom: "30px" }}
+          <Button
+            variant="outline-dark"
+            type="submit"
+            style={{ marginTop: "20px" }}
+            onClick={handleDelete}
           >
-            <Form.Group controlId="formBasicPassword">
-              <Form.Label>Update Password</Form.Label>
-              <Form.Control type="password" placeholder="Update Password" />
-            </Form.Group>
-
-            <Form.Group controlId="formBasicPassword">
-              <Form.Label>Re-Enter Password</Form.Label>
-              <Form.Control type="password" placeholder="Re-Enter Password" />
-            </Form.Group>
-            <Button variant="outline-dark" type="submit">
-              Submit
-            </Button>
-          </Form>
-        </div> */}
+            Delete Account
+          </Button>
+        </div>
       </div>
     </>
   );

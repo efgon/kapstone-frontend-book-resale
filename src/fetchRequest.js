@@ -60,3 +60,13 @@ export const patchUser = (token, firstName, lastName, email, creditBalance) => {
 
     .catch((err) => console.log(err));
 };
+
+export const deleteUser = (email, token) => {
+  console.log(email);
+  return fetch(baseURL + `users/${email}`, {
+    method: "DELETE",
+    headers: {
+      Authorization: "Bearer " + token,
+    },
+  }).then((res) => res.json());
+};
