@@ -41,7 +41,7 @@ function LoginPage(props) {
   }, []);
 
   function handleMessage(e) {
-    console.log(e);
+    //console.log(e);
   }
 
   return (

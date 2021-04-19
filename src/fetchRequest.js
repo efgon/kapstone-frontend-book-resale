@@ -7,8 +7,8 @@ export const loginRequest = (email, password) => {
     body: JSON.stringify({
       email,
       password,
-    })
-  }).then((res) => res.json())
+    }),
+  }).then((res) => res.json());
 };
 
 export const logoutRequest = (token) => {
@@ -31,8 +31,7 @@ export const createUser = async (firstName, lastName, email, password) => {
       email,
       password,
     }),
-  })
-    .then((res) => res.json())
+  }).then((res) => res.json());
 
   // if (!res.ok) {
   //   throw new Error("bad response", res);
@@ -47,13 +46,17 @@ export const getUser = (email) => {
   return fetch(baseURL + `users/${email}`).then((res) => res.json());
 };
 
-export const patchUser = (token, firstName, lastName, email, _id) => {
-  return fetch(baseURL + `users/:${_id}`, {
+export const patchUser = (token, firstName, lastName, email, creditBalance) => {
+  // console.log(typeof email, typeof firstName, typeof lastName);
+  return fetch(baseURL + `users/${email}`, {
     method: "PATCH",
     headers: {
       Authorization: "Bearer " + token,
-      // "Content-Type": "application/json",
+      "Content-Type": "application/json",
     },
-    body: JSON.stringify({ firstName, lastName, email }),
-  }).then((res) => res.json());
+    body: JSON.stringify({ firstName: firstName, lastName: lastName }),
+  })
+    .then((res) => res.json())
+
+    .catch((err) => console.log(err));
 };

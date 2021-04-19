@@ -1,32 +1,39 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, Button, Col } from "react-bootstrap";
-import { useStore } from "../Store/store";
-import { patchUser } from "../fetchRequest";
+import { UPDATEUSER, useStore, GET_USER } from "../Store/store";
+import { patchUser, getUser } from "../fetchRequest";
+import { useHistory } from "react-router-dom";
 
 function AccountSettings() {
   const userInfo = useStore((state) => state.user);
-  const [user, setUser] = useState({
+  const dispatch = useStore((state) => state.dispatch);
+  const [userForm, setUserForm] = useState({
     firstName: "",
     lastName: "",
+    email: "",
   });
+  const history = useHistory();
 
   function handleSubmit(e) {
+    const reRoute = (e) => history.push("/UserProfile");
     e.preventDefault();
-    // const newUserInfo = {
-    //     firstName,
-    //     lastName,
-    // };
-    patchUser(userInfo.token, user.firstName, user.lastName).then((data) => {
-      console.log(data);
-      setUser(data.user);
+    patchUser(
+      userInfo.accessToken,
+      userForm.firstName,
+      userForm.lastName,
+      userInfo.user.email
+    ).then((data) => {
+      setUserForm(data);
+      localStorage.setItem("user", JSON.stringify(data));
+      dispatch({ type: UPDATEUSER, payload: data });
     });
+    reRoute();
   }
 
   const handleChange = (e) => {
     const inputName = e.target.name;
     const inputValue = e.target.value;
-
-    setUser((state) => ({ ...state, [inputName]: inputValue }));
+    setUserForm((state) => ({ ...state, [inputName]: inputValue }));
   };
 
   return (
@@ -35,23 +42,27 @@ function AccountSettings() {
       <hr />
       <div style={{ width: "70rem", margin: "auto" }}>
         <div className="accountSettings">
-          <Form onSubmit={handleSubmit}
+          <Form
+            onSubmit={handleSubmit}
             style={{ width: "40rem", marginTop: "30px", marginBottom: "30px" }}
           >
             <Form.Label>Update First Name</Form.Label>
-            <Form.Control 
-            placeholder="First name" 
-            onChange={(e) => setUser(e.target.value)} 
-            value={user.firstName} 
-            type="text" 
+            <Form.Control
+              type="text"
+              name="firstName"
+              placeholder="First name"
+              value={userForm.firstName}
+              onChange={handleChange}
             />
             <br />
             <Form.Label>Update Last Name</Form.Label>
-            <Form.Control 
-            placeholder="Last Name"
-            onChange={(e) => setUser(e.target.value)} 
-            value={user.lastName} 
-            type="text"  />
+            <Form.Control
+              type="text"
+              name="lastName"
+              placeholder="Last Name"
+              value={userForm.lastName}
+              onChange={handleChange}
+            />
 
             <Button
               variant="outline-dark"

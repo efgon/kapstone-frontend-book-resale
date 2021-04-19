@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Form, Col } from "react-bootstrap";
-import { createUser } from '../fetchRequest'
+import { createUser } from "../fetchRequest";
 import { useStore, LOGIN, SIGNUP } from "../Store/store";
 import { loginRequest } from "../fetchRequest";
 import { useHistory } from "react-router-dom";
@@ -8,29 +8,39 @@ import { useHistory } from "react-router-dom";
 function SignUpPage() {
   const dispatch = useStore((state) => state.dispatch);
   const user = useStore((state) => state.user);
-  const history = useHistory()
+  const history = useHistory();
 
   const [userData, setUserdata] = useState({
     firstName: "",
     lastName: "",
     email: "",
     password: "",
-    creditBalance: 50.00,
+    creditBalance: 50.0,
   });
 
   const handleSubmit = (e) => {
     const reRoute = (e) => history.push("/");
-    console.log(userData.firstName, userData.lastName, userData.email, userData.password)
+    console.log(
+      userData.firstName,
+      userData.lastName,
+      userData.email,
+      userData.password
+    );
     e.preventDefault();
-    createUser(userData.firstName, userData.lastName, userData.email, userData.password)
-    dispatch({ type: SIGNUP, payload: userData })
+    createUser(
+      userData.firstName,
+      userData.lastName,
+      userData.email,
+      userData.password
+    );
+    dispatch({ type: SIGNUP, payload: userData });
     // if (userData.statusCode === 200) {
-    loginRequest(userData.email, userData.password).then((userData) =>
-      dispatch({ type: LOGIN, payload: userData })
-    )
+    // loginRequest(userData.email, userData.password).then((userData) =>
+    //   dispatch({ type: LOGIN, payload: userData })
+    // )
     // }
     reRoute();
-  }
+  };
 
   const handleChange = (e) => {
     const inputName = e.target.name;
@@ -39,17 +49,17 @@ function SignUpPage() {
     setUserdata((state) => ({ ...state, [inputName]: inputValue }));
   };
 
-
   return (
     <>
       <h1>Create an Account</h1>
       <hr />
-      <Form onSubmit={handleSubmit}
-        style={{ margin: 'auto', width: '700px', paddingBottom: '20px' }}>
-
+      <Form
+        onSubmit={handleSubmit}
+        style={{ margin: "auto", width: "700px", paddingBottom: "20px" }}
+      >
         <Form.Row>
           <Col>
-            <Form.Group as={Col} >
+            <Form.Group as={Col}>
               <Form.Control
                 type="text"
                 name="firstName"
@@ -57,12 +67,11 @@ function SignUpPage() {
                 onChange={handleChange}
                 value={userData.firstName}
                 required
-
               />
             </Form.Group>
           </Col>
           <Col>
-            <Form.Group as={Col} >
+            <Form.Group as={Col}>
               <Form.Control
                 type="text"
                 name="lastName"
@@ -84,10 +93,9 @@ function SignUpPage() {
               placeholder="Enter email"
               value={userData.email}
               required
-              onChange={handleChange} />
+              onChange={handleChange}
+            />
           </Form.Group>
-
-
         </Form.Row>
 
         <Form.Row>
@@ -99,24 +107,23 @@ function SignUpPage() {
               placeholder="Password"
               value={userData.password}
               required
-              onChange={handleChange} />
+              onChange={handleChange}
+            />
           </Form.Group>
 
           <Form.Group as={Col} controlId="formGridPassword">
             <Form.Label>Re-Enter Password</Form.Label>
             <Form.Control type="password" placeholder="Re-Enter Password" />
-
           </Form.Group>
         </Form.Row>
-
 
         <Button
           variant="outline-dark"
           type="submit"
-        // onClick={handleLogin}
+          // onClick={handleLogin}
         >
           Submit
-  </Button>
+        </Button>
       </Form>
     </>
   );
