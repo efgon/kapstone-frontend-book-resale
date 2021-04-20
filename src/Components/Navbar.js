@@ -121,21 +121,7 @@ function NavBar() {
       </Navbar>
 
       <Navbar bg="light" variant="light">
-        <Form inline style={{ margin: "auto" }}>
-          <div className="searchBar">
-            <FormControl
-              type="text"
-              placeholder="Search by Title, Author, or Category"
-              className="mr-sm-2"
-              style={{ width: "500px" }}
-            />
-          </div>
-          <Button variant="outline-dark">
-            <Link to="/Searchresult" style={{ color: "black" }}>
-              Search
-            </Link>
-          </Button>
-        </Form>
+       
       </Navbar>
       <Navbar
         className="navbar3"
@@ -151,6 +137,8 @@ function NavBar() {
           <Nav.Link href="/AllHistoryBooks">| History |</Nav.Link>
           <Nav.Link href="/AllMathBooks">| Math |</Nav.Link>
           <Nav.Link href="/AllPetsBooks">| Pets |</Nav.Link>
+          <Nav.Link href="/Searchresult">| Search |</Nav.Link>
+
         </Nav>
         <Form inline></Form>
       </Navbar>

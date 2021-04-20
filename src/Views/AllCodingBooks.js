@@ -11,7 +11,7 @@ function AllBooksPage() {
             <hr />
             <div className='bookshelf'>
                 {BooksArray.map((book) => {
-                    if (book.Category === 'Coding') {
+                    if (book.Category === 'coding') {
                         return (
                             <Card style={{ width: '15rem', height: '36rem', marginBottom: '20px' }}>
                                 {console.log(book.Title)}
