@@ -24,7 +24,6 @@ function AllBooksPage() {
                             </Card.Body>
                             <Card.Footer className="text-muted">
                                 <Button variant="outline-dark">Buy for ${book.PurchasePrice}</Button>
-                                <Button variant="outline-dark">Rent for ${book.RentPrice}</Button>
                             </Card.Footer>
                         </Card>
                     )

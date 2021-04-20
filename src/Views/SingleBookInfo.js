@@ -44,7 +44,6 @@ function SingleBookInfo(props) {
         </Card.Body>
         <Card.Footer className="text-muted">
           <Button variant="outline-dark">Buy for $</Button>
-          <Button variant="outline-dark">Rent for $</Button>
         </Card.Footer>
       </Card>
     </div>
