@@ -1,4 +1,4 @@
-export const baseURL = "http://localhost:4000/";
+export const baseURL = "https://deciduous-glowing-dandelion.glitch.me/";
 
 export const loginRequest = (email, password) => {
   return fetch(baseURL + "login", {

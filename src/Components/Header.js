@@ -4,11 +4,12 @@ import KenzieAdd from '../img/kenzieAdd.jpeg'
 import FCCad from '../img/freecodeCampAd.jpeg'
 import SNHUad from '../img/snhu.jpeg'
 import BillyPic from '../book img/billy.jpeg'
+ 
 
 function Header() {
     return (
         <div>
-            <Carousel style={{ margin: 'auto', height: '80px', width: '900px' }}>
+            <Carousel style={{ margin: 'auto', height: '80px', width: '900px' }} >
                 <Carousel.Item interval={7000}>
                     <img
                         // onClick={()=> window.location.assign("www.google.com")}
