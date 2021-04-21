@@ -9,17 +9,19 @@ const initState = {
     lastName: "",
     creditBalance: 50.0,
   },
-  cart:[{
-    // book: [
+  cart: [
+    {
+      // book: [
       // {
-        id: 0,
-        title: "",
-        author: "",
-        imageURL: "",
-        purchasePrice: 0,
-    //   },
-    // ]
-  }]
+      // id: 0,
+      // title: "",
+      // author: "",
+      // imageURL: "",
+      // purchasePrice: 0,
+      //   },
+      // ]
+    },
+  ],
 };
 
 export const LOGIN = "LOGIN";

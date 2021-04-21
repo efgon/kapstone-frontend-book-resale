@@ -107,7 +107,7 @@ function NavBar() {
         )}
         {user.accessToken ? (
           //hard coded cart items
-        <h5>{cart.length}</h5>
+          <h5>{cart.length - 1}</h5>
         ) : (
           ""
         )}
