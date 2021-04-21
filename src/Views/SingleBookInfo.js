@@ -37,9 +37,6 @@ function SingleBookInfo(props) {
     });
   }
 
-  useEffect(() => {
-    handleAddBookToCart();
-  }, []);
 
   return (
     <>

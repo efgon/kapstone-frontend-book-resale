@@ -62,6 +62,6 @@ const reducer = (state, action) => {
   }
 };
 
-export const useStore = create(devtools(persist(redux(reducer, initState))), {
+export const useStore = create(persist(devtools(redux(reducer, initState))), {
   name: "storage",
 });

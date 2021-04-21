@@ -7,7 +7,7 @@ import {
   FormControl,
   NavDropdown,
 } from "react-bootstrap";
-import cart from "../img/shoppingcart.png";
+import cartIMG from "../img/shoppingcart.png";
 import { Link } from "react-router-dom";
 import Logo from "../img/download.png";
 import { useStore, LOGOUT } from "../Store/store";
@@ -15,6 +15,7 @@ import { logoutRequest } from "../fetchRequest";
 import { useHistory } from "react-router-dom";
 
 function NavBar() {
+  const cart = useStore((state) => state.cart);
   const user = useStore((state) => state.user);
   const dispatch = useStore((state) => state.dispatch);
 
@@ -97,7 +98,7 @@ function NavBar() {
           <Nav.Link href="/shoppingCart">
             <img
               className="cart"
-              src={cart}
+              src={cartIMG}
               onClick={<Link to="/ShoppingCart" />}
             />
           </Nav.Link>
@@ -106,7 +107,7 @@ function NavBar() {
         )}
         {user.accessToken ? (
           //hard coded cart items
-          <h5>0</h5>
+        <h5>{cart.length}</h5>
         ) : (
           ""
         )}

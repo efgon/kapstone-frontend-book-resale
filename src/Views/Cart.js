@@ -19,16 +19,19 @@ function Cart() {
   return (
     <>
       <h1>Your Cart</h1>
+      {cart.map((book)=>{
+       return book.Author
+      })}
       <div className="shoppingCart">
         <div
           className="cartBooks"
           style={{ marginTop: "80px", width: "700px", height: "auto" }}
         >
-          <Image
+          {/* <Image
             src={bookImage}
             thumbnail
             style={{ height: "22rem", width: "250px" }}
-          />
+          /> */}
 
           <Card
             style={{ width: "20rem", height: "22rem", marginBottom: "20px" }}
