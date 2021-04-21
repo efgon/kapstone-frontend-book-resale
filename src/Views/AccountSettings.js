@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Form, Button, Col } from "react-bootstrap";
 import { UPDATEUSER, useStore, GET_USER } from "../Store/store";
-import { patchUser, deleteUser, logoutRequest } from "../fetchRequest";
+import { patchUser, logoutRequest } from "../fetchRequest";
 import { useHistory } from "react-router-dom";
 
 function AccountSettings() {
@@ -37,14 +37,7 @@ function AccountSettings() {
     setUserForm((state) => ({ ...state, [inputName]: inputValue }));
   };
 
-  const handleDelete = (e) => {
-    const reRoute = (e) => history.push("/");
-    e.preventDefault();
-    localStorage.removeItem("user");
-    deleteUser(userInfo.user.email, userInfo.accessToken);
-    dispatch({ type: "LOGOUT" });
-    reRoute();
-  };
+  
 
   return (
     <>
@@ -82,14 +75,7 @@ function AccountSettings() {
               Submit
             </Button>
           </Form>
-          <Button
-            variant="outline-dark"
-            type="submit"
-            style={{ marginTop: "20px" }}
-            onClick={handleDelete}
-          >
-            Delete Account
-          </Button>
+       
         </div>
       </div>
     </>

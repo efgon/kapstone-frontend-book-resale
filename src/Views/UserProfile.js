@@ -3,9 +3,14 @@ import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import { useStore } from "../Store/store";
-import { getUser } from "../fetchRequest";
+import { getUser, deleteUser } from "../fetchRequest";
+import { useHistory } from "react-router-dom";
 
 function UserProfile() {
+
+  const dispatch = useStore((state) => state.dispatch);
+  const history = useHistory();
+
   const userInfo = useStore((state) => state.user);
   const [user, setUser] = useState({
     firstName: "",
@@ -24,13 +29,14 @@ function UserProfile() {
       setUser(data.user);
     });
   }
-
-  // const handleChange = (e) => {
-  //   const inputName = e.target.name;
-  //   const inputValue = e.target.value;
-
-  //   setUser((state) => ({ ...state, [inputName]: inputValue }));
-  // };
+  const handleDelete = (e) => {
+    const reRoute = (e) => history.push("/");
+    e.preventDefault();
+    localStorage.removeItem("user");
+    deleteUser(userInfo.user.email, userInfo.accessToken);
+    dispatch({ type: "LOGOUT" });
+    reRoute();
+  };
 
   return (
     <>
@@ -58,14 +64,17 @@ function UserProfile() {
 
         <Card border="light" style={{ width: "18rem", marginBottom: "20px" }}>
           <Card.Body>
-            <Card.Title>Order History</Card.Title>
+            <Card.Title>Delete Account</Card.Title>
             {/* <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle> */}
-            <Card.Text>Review your order history</Card.Text>
-            <Button variant="outline-dark">
-              <Link to="/OrderHistory" style={{ color: "black" }}>
-                Order History
-              </Link>
-            </Button>
+            {/* <Card.Text>Review your order history</Card.Text> */}
+            <Button
+            variant="outline-dark"
+            type="submit"
+            style={{ marginTop: "20px" }}
+            onClick={handleDelete}
+          >
+            Delete Account
+          </Button>
           </Card.Body>
         </Card>
 

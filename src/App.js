@@ -11,7 +11,6 @@ import Searchresult from "./Views/Searchresult";
 import UserProfilePage from "./Views/UserProfile";
 import Cart from "./Views/Cart";
 import AddressPage from "./Views/AddressPage";
-import OrderHistory from "./Views/OderHistory";
 import AccountSettings from "./Views/AccountSettings";
 import AllBooksPage from "./Views/AllBooksPage";
 import MyBooks from "./Views/MyBooks";
@@ -44,7 +43,6 @@ function App() {
         <Route exact path="/LogInPage" component={LoginPage} />
         <Route exact path="/ShoppingCart" component={Cart} />
         <Route exact path="/AccountSettings" component={AccountSettings} />
-        <Route exact path="/OrderHistory" component={OrderHistory} />
         <Route exact path="/AddressPage" component={AddressPage} />
         <Route exact path="/Allbooks" component={AllBooksPage} />
         <Route exact path="/AllArtBooks" component={AllArtBooks} />

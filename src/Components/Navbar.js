@@ -83,15 +83,7 @@ function NavBar() {
           ) : (
             ""
           )}
-          {user.accessToken ? (
-            <NavDropdown.Item>
-              <Link to="/OrderHistory" style={{ color: "black" }}>
-                Order History
-              </Link>
-            </NavDropdown.Item>
-          ) : (
-            ""
-          )}
+
           {user.accessToken ? (
             <NavDropdown.Item href="#action/3.4">
               Credit Balance <h5>${user.user.creditBalance}</h5>{" "}
@@ -120,9 +112,7 @@ function NavBar() {
         )}
       </Navbar>
 
-      <Navbar bg="light" variant="light">
-       
-      </Navbar>
+      <Navbar bg="light" variant="light"></Navbar>
       <Navbar
         className="navbar3"
         bg="light"
@@ -138,7 +128,6 @@ function NavBar() {
           <Nav.Link href="/AllMathBooks">| Math |</Nav.Link>
           <Nav.Link href="/AllPetsBooks">| Pets |</Nav.Link>
           <Nav.Link href="/Searchresult">| Search |</Nav.Link>
-
         </Nav>
         <Form inline></Form>
       </Navbar>
