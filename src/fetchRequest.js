@@ -46,7 +46,7 @@ export const getUser = (email) => {
   return fetch(baseURL + `users/${email}`).then((res) => res.json());
 };
 
-export const patchUser = (token, firstName, lastName, email, creditBalance, myCart) => {
+export const patchUser = (token, firstName, lastName, email, creditBalance) => {
   // console.log(typeof email, typeof firstName, typeof lastName);
   return fetch(baseURL + `users/${email}`, {
     method: "PATCH",
@@ -54,7 +54,7 @@ export const patchUser = (token, firstName, lastName, email, creditBalance, myCa
       Authorization: "Bearer " + token,
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ firstName: firstName, lastName: lastName, myCart: myCart }),
+    body: JSON.stringify({ firstName: firstName, lastName: lastName, creditBalance: creditBalance }),
   })
     .then((res) => res.json())
 

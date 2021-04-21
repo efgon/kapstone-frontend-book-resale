@@ -13,7 +13,7 @@ function LoginPage(props) {
     email: "",
     password: "",
   });
-
+console.log(user)
   const handleLogin = (e) => {
     const reRoute = (e) => history.push("/");
     // console.log(formData.email)

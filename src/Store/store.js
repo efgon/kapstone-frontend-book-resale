@@ -1,5 +1,5 @@
 import create from "zustand";
-import { devtools, redux } from "zustand/middleware";
+import { devtools, redux, persist } from "zustand/middleware";
 
 const initState = {
   user: JSON.parse(localStorage.getItem("user")) || {
@@ -9,21 +9,17 @@ const initState = {
     lastName: "",
     creditBalance: 50.0,
   },
-  book: [
-    {
-      title: "",
-      subtitle: "",
-      author: "",
-      category: "",
-      tags: "",
-      imageURL: "",
-      purchasePrice: 0,
-      rentPrice: 0,
-      sellPrice: 0,
-      inventory: 0,
-      description: "",
-    },
-  ],
+  cart:[{
+    // book: [
+      // {
+        id: 0,
+        title: "",
+        author: "",
+        imageURL: "",
+        purchasePrice: 0,
+    //   },
+    // ]
+  }]
 };
 
 export const LOGIN = "LOGIN";
@@ -58,14 +54,14 @@ const reducer = (state, action) => {
     case UPDATEUSER:
       return { ...state, user: { ...state.user, user: action.payload } };
     case ADDBOOK:
-      return { ...state, book: action.payload };
+      return { ...state, cart: [...state.cart, action.payload] };
     case REMOVEBOOK:
-      return { ...state, book: action.payload };
+      return { ...state, cart: action.payload };
     default:
       return state;
   }
 };
 
-export const useStore = create(devtools(redux(reducer, initState)), {
+export const useStore = create(devtools(persist(redux(reducer, initState))), {
   name: "storage",
 });
