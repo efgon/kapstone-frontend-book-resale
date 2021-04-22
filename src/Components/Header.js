@@ -7,10 +7,9 @@ import SNHUad from '../img/snhu.jpeg'
 function Header() {
     return (
         <div>
-            <Carousel style={{ margin: 'auto', height: '80px', width: '900px' }}>
+            <Carousel style={{ margin: 'auto', height: '80px', width: '900px' }} >
                 <Carousel.Item interval={7000}>
                     <img
-
                         style={{ height: '80px' }}
                         className="d-block w-100"
                         src={KenzieAdd}
@@ -18,13 +17,13 @@ function Header() {
                     />
                     <Carousel.Caption style={{ color: 'black', textAlign: 'left' }}>
                         <a style={{ color: 'grey' }} href='https://www.kenzie.academy/'>
-                            <h4>Join Kenzie Academy</h4>
+                            <h4> Join Kenzie Academy</h4>
                         </a>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item interval={7000}>
                     <img
-                        style={{ height: '80px' }}
+                        style={{ height: '80px', width: '40px' }}
                         className="d-block w-100"
                         src={SNHUad}
                         alt="Second slide"

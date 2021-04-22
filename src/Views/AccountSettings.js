@@ -1,66 +1,85 @@
-import React from 'react'
-import { Form, Button, Col } from 'react-bootstrap'
+import React, { useState } from "react";
+import { Form, Button } from "react-bootstrap";
+import { UPDATEUSER, useStore } from "../Store/store";
+import { patchUser } from "../fetchRequest";
+import { useHistory } from "react-router-dom";
 
 function AccountSettings() {
-    return (
-        <>
-            <h2>Manage Account</h2>
-            < hr />
-            <div style={{ width: '70rem', margin: 'auto' }}>
-                <div className='accountSettings'>
+  const userInfo = useStore((state) => state.user);
+  const dispatch = useStore((state) => state.dispatch);
+  const [userForm, setUserForm] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+  });
+  const history = useHistory();
+  console.log(userInfo);
 
-                    <Form style={{ width: '40rem', marginTop: '30px', marginBottom: '30px' }}>
-                        <Form.Group controlId="formBasicEmail">
-                            <Form.Label>Update Email address</Form.Label>
-                            <Form.Control type="email" placeholder="Enter email" />
-                        </Form.Group>
+  function handleSubmit(e) {
+    const reRoute = (e) => history.push("/UserProfile");
+    e.preventDefault();
+    patchUser(
+      userInfo.accessToken,
+      userForm.firstName,
+      userForm.lastName,
+      userInfo.user.email
+    ).then((data) => {
+      setUserForm(data);
+      localStorage.setItem("user", JSON.stringify(data));
+      dispatch({ type: UPDATEUSER, payload: data });
+    });
+    reRoute();
+  }
 
-                        <Form.Group controlId="formBasicEmail">
-                            <Form.Label>Re-Enter Email address</Form.Label>
-                            <Form.Control type="email" placeholder="Re-Enter Email" />
-                            <Form.Text className="text-muted">
-                            </Form.Text>
-                        </Form.Group>
-                        <Button variant="outline-dark" type="submit">
-                            Submit
-  </Button>
-                    </Form>
-                </div>
-                <hr />
+  const handleChange = (e) => {
+    const inputName = e.target.name;
+    const inputValue = e.target.value;
+    setUserForm((state) => ({ ...state, [inputName]: inputValue }));
+  };
 
-                <div className='accountSettings'>
-                    <Form style={{ width: '40rem', marginTop: '30px', marginBottom: '30px' }}>
-                        <Form.Label>Update First Name</Form.Label>
-                        <Form.Control placeholder="First name" />
-                        <br />
-                        <Form.Label>Update Last Name</Form.Label>
-                        <Form.Control placeholder="Last name" />
 
-                        <Button variant="outline-dark" type="submit" style={{ marginTop: '20px' }}>
-                            Submit
-  </Button>
-                    </Form>
-                </div>
-                <hr />
-                <div className='accountSettings'>
-                    <Form style={{ width: '40rem', marginTop: '30px', marginBottom: '30px' }}>
-                        <Form.Group controlId="formBasicPassword">
-                            <Form.Label>Update Password</Form.Label>
-                            <Form.Control type="password" placeholder="Update Password" />
-                        </Form.Group>
 
-                        <Form.Group controlId="formBasicPassword">
-                            <Form.Label>Re-Enter Password</Form.Label>
-                            <Form.Control type="password" placeholder="Re-Enter Password" />
-                        </Form.Group>
-                        <Button variant="outline-dark" type="submit">
-                            Submit
-  </Button>
-                    </Form>
-                </div>
-            </div>
-        </>
-    )
+  return (
+    <>
+      <h2>Manage Account</h2>
+      <hr />
+      <div style={{ width: "70rem", margin: "auto" }}>
+        <div className="accountSettings">
+          <Form
+            onSubmit={handleSubmit}
+            style={{ width: "40rem", marginTop: "30px", marginBottom: "30px" }}
+          >
+            <Form.Label>Update First Name</Form.Label>
+            <Form.Control
+              type="text"
+              name="firstName"
+              placeholder="First name"
+              value={userForm.firstName}
+              onChange={handleChange}
+            />
+            <br />
+            <Form.Label>Update Last Name</Form.Label>
+            <Form.Control
+              type="text"
+              name="lastName"
+              placeholder="Last Name"
+              value={userForm.lastName}
+              onChange={handleChange}
+            />
+
+            <Button
+              variant="outline-dark"
+              type="submit"
+              style={{ marginTop: "20px" }}
+            >
+              Submit
+            </Button>
+          </Form>
+
+        </div>
+      </div>
+    </>
+  );
 }
 
-export default AccountSettings
+export default AccountSettings;

@@ -1,87 +1,91 @@
-import React from 'react'
-import { Card, ListGroup, ListGroupItem, Form, Image, Button } from 'react-bootstrap'
-import bookImage from '../book img/javascript.jpeg'
+import React from "react";
+import {
+  Card,
+  ListGroup,
+  ListGroupItem,
+  Image,
+  Button,
+} from "react-bootstrap";
+import { useStore, REMOVEBOOK } from "../Store/store";
+import { Link } from 'react-router-dom'
 
 function Cart() {
-    return (
-        <>
-            <h1>Your Cart</h1>
-            <div className='shoppingCart'>
-                <div className='cartBooks' style={{ marginTop: '80px', width: '700px', height: 'auto' }}>
-                    <Image src={bookImage} thumbnail style={{ height: '22rem', width: '250px' }} />
+  const dispatch = useStore((state) => state.dispatch);
+  const cart = useStore((state) => state.cart);
+  let cartTotal = 0;
 
-                    <Card style={{ width: '20rem', height: '22rem', marginBottom: '20px' }}>
-                        <Card.Body>
-                            <Card.Title>Math Book</Card.Title>
-                            <Card.Subtitle className="mb-2 text-muted">Author: Tina</Card.Subtitle>
-                            <hr />
-                            <ListGroup className="list-group-flush">
-                                <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
-                                <ListGroupItem>Vestibulum at eros</ListGroupItem>
-                                <ListGroupItem>Price: $12.99</ListGroupItem>
-                            </ListGroup>
-                        </Card.Body>
-                        <Card.Footer className="text-muted">
-                            <Form.Control as="select" defaultValue="Qty" style={{ width: '80px', margin: 'auto' }}>
-                                <option>Qty...</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                            </Form.Control>
-                            <Button variant="outline-dark"
-                                style={{ marginTop: '4px' }}
-                            >
-                                Remove
-                        </Button>
-                        </Card.Footer>
-                    </Card>
-                    <Image src={bookImage} thumbnail style={{ height: '22rem', width: '250px' }} />
+  return (
+    <>
+      <h1>Your Cart</h1>
+      <div className='checkoutBox'>
+        <div className="checkout">
+          {cart.slice(1, cart.length).forEach((bookInCart) => {
+            cartTotal += bookInCart.PurchasePrice;
+          })}
 
-                    <Card style={{ width: '20rem', height: '22rem' }}>
-                        <Card.Body>
-                            <Card.Title>Math Book</Card.Title>
-                            <Card.Subtitle className="mb-2 text-muted">Author: Tina</Card.Subtitle>
-                            <hr />
-                            <ListGroup className="list-group-flush">
-                                <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
-                                <ListGroupItem>Vestibulum at eros</ListGroupItem>
-                                <ListGroupItem>{`Price: $12.99`}</ListGroupItem>
-                            </ListGroup>
-                        </Card.Body>
-                        <Card.Footer className="text-muted">
-                            <Form.Control as="select" defaultValue="Qty" style={{ width: '80px', margin: 'auto' }}>
-                                <option>Qty...</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                            </Form.Control>
-                            <Button variant="outline-dark"
-                                style={{ marginTop: '4px' }}
-                            >
-                                Remove
-                        </Button>
-                        </Card.Footer>
-                    </Card>
-                </div>
+        </div>
+        <Card style={{ width: "250px" }}>
+          <Card.Header>Checkout</Card.Header>
+          <Card.Body>
+            <Card.Title>Cart Total: ${cartTotal.toFixed(2)}</Card.Title>
+            <Card.Title>{cartTotal.toFixed(2) < 50 ? '' : <h4 style={{ color: 'red' }}>Not Enough Credits</h4>}</Card.Title>
+            <Link to='/ThankYouPage'>
+              <Button variant="outline-dark"
+              >Checkout</Button>
+            </Link>
+          </Card.Body>
+        </Card>
+      </div>
+      {cart.slice(1, cart.length).map((book) => {
+        return (
+          <div className="shoppingCart">
+            <div
+              className="cartBooks"
+              style={{ marginTop: "80px", width: "700px", height: "auto" }}
+            >
+              <Image
+                src={book.imageURL}
+                thumbnail
+                style={{ height: "22rem", width: "250px" }}
+              />
 
-                <div className='checkout'>
-                    <Card style={{ width: '250px' }}>
-                        <Card.Header>Checkout</Card.Header>
-                        <Card.Body>
-                            <Card.Title>Cart Total: $25.98</Card.Title>
-                            <Card.Text>
-                                Shipping Rates may vary by location
-                    </Card.Text>
-                            <Button variant="outline-dark">Checkout</Button>
-                        </Card.Body>
-                    </Card>
-                </div>
-
+              <Card
+                style={{
+                  width: "20rem",
+                  height: "22rem",
+                  marginBottom: "20px",
+                }}
+              >
+                <Card.Body>
+                  <Card.Title>{book.Title}</Card.Title>
+                  <Card.Subtitle className="mb-2 text-muted">
+                    Author: {book.Author}
+                  </Card.Subtitle>
+                  <hr />
+                  <ListGroup className="list-group-flush">
+                    <ListGroupItem>Price: ${book.PurchasePrice}</ListGroupItem>
+                  </ListGroup>
+                </Card.Body>
+                <Card.Footer className="text-muted">
+                  <Button
+                    variant="outline-dark"
+                    style={{ marginTop: "4px" }}
+                    onClick={() => {
+                      cart.splice(cart.indexOf(book), 1);
+                      dispatch({ type: REMOVEBOOK, payload: cart });
+                    }}
+                  >
+                    Remove
+                  </Button>
+                </Card.Footer>
+              </Card>
             </div>
-        </>
-    )
+          </div>
+        );
+      })}
+
+    </>
+  );
 }
 
-export default Cart
+export default Cart;

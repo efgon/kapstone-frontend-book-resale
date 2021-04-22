@@ -61,7 +61,7 @@ function AddressPage() {
 
     return (
         <div className='addressPage'>
-            <h2>Add/Upade Address</h2>
+            <h2>Add/Update Address</h2>
             <hr />
             <Form.Group controlId="formGridAddress1">
                 <Form.Label>Address</Form.Label>

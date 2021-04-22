@@ -1,33 +1,76 @@
-import React from 'react'
-import { Image } from 'react-bootstrap'
-import bookImage from '../book img/mathBook.jpeg'
-import { Card, Button } from 'react-bootstrap'
+import React, { useState } from "react";
+import { Image } from "react-bootstrap";
+import { Card, Button } from "react-bootstrap";
+import { BooksArray } from "../Components/BooksArray";
+import { useStore, ADDBOOK } from "../Store/store";
 
-function SingleBookInfo() {
-    return (
-        <div className='bookInfo' style={{ marginTop: '80px' }}>
-            <Image src={bookImage} thumbnail style={{ height: '320px', width: '180px' }} />
+function SingleBookInfo(props) {
+  const dispatch = useStore((state) => state.dispatch);
+  const [myCart, setMyCart] = useState([
+    {
+      id: 0,
+      title: "",
+      author: "",
+      imageURL: "",
+      purchasePrice: 0,
+    },
+  ]);
+  let selectedBookId = props.match.params.id;
 
-            <Card style={{ width: '45rem', height: '20rem' }}>
+  function handleAddBookToCart(e) {
+    BooksArray.map((singleBook) => {
+      if (singleBook.id == selectedBookId) {
+        const newBook = {
+          id: singleBook.id,
+          Title: singleBook.Title,
+          Author: singleBook.Author,
+          imageURL: singleBook.imageUrl,
+          PurchasePrice: singleBook.PurchasePrice,
+        };
+        setMyCart(newBook);
+        dispatch({ type: ADDBOOK, payload: newBook });
+      }
+    });
+  }
+
+
+  return (
+    <>
+      {BooksArray.map((singleBook) => {
+        if (singleBook.id == selectedBookId) {
+          return (
+            <div className="bookInfo" style={{ marginTop: "80px" }}>
+              <Image
+                src={singleBook.imageUrl}
+                thumbnail
+                style={{ height: "320px", width: "180px" }}
+              />
+
+              <Card
+                style={{ width: "45rem", height: "auto", marginBottom: "20px" }}
+              >
                 <Card.Body>
-                    <Card.Title>Math Book</Card.Title>
-                    <Card.Subtitle className="mb-2 text-muted">Author: Tina</Card.Subtitle>
-                    <hr />
-                    <Card.Text>
-                        This is a math textbook. It is hard coded but will have more detail later.
-                        Blah blah blah
-                        Blah blah blah
-                        Blah blah blah
-                        Blah blah blah
-    </Card.Text>
+                  <Card.Title>{singleBook.Title}</Card.Title>
+                  <Card.Subtitle className="mb-2 text-muted">
+                    Author: {singleBook.Author}
+                  </Card.Subtitle>
+                  <hr />
+                  <Card.Text>{singleBook.Description}</Card.Text>
                 </Card.Body>
                 <Card.Footer className="text-muted">
-                    <Button variant="outline-dark">Buy for $</Button>
-                    <Button variant="outline-dark">Rent for $</Button>
+                  ${singleBook.PurchasePrice}
+                  <hr />
+                  <Button variant="outline-dark" onClick={handleAddBookToCart}>
+                    Add to Cart
+                  </Button>
                 </Card.Footer>
-            </Card>
-        </div>
-    )
+              </Card>
+            </div>
+          );
+        } else return;
+      })}
+    </>
+  );
 }
 
-export default SingleBookInfo
+export default SingleBookInfo;

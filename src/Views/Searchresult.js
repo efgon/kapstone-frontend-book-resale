@@ -1,102 +1,77 @@
-import React from 'react'
-import { Image, Card, Button } from 'react-bootstrap'
-import bookImageOne from '../book img/interviewBook.jpeg'
-import bookImageTwo from '../book img/vanGogh.jpeg'
-import bookImageThree from '../book img/javascript.jpeg'
-import bookImageFour from '../book img/mathBook.jpeg'
-import { Link } from 'react-router-dom'
+import React, { useState } from "react";
+import { Card, Button, Form, FormControl } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { BooksArray } from "../Components/BooksArray";
 
 function Searchresult() {
 
-    return (
-        <>
-            <h3>Sorry we do not have that book.</h3>
-            <h5>Try these books instead</h5>
-            <hr />
-            <div className='Searchresult'>
-                <Card style={{ width: '15rem', height: '33rem' }}>
-                    <Card.Img variant="top" src={bookImageTwo} style={{ height: '320px' }} />
-                    <Card.Body>
-                        <Card.Title>Book Title</Card.Title>
-                        <Card.Text>
-                            Some quick example text to build on the Book title and make up the bulk of
-                            the card's content.
-    </Card.Text>
-                    </Card.Body>
-                </Card>
-                <Card style={{ width: '15rem', height: '33rem' }}>
-                    <Card.Img variant="top" src={bookImageOne} style={{ height: '320px' }} />
-                    <Card.Body>
-                        <Card.Title>Book Title</Card.Title>
-                        <Card.Text>
-                            Some quick example text to build on the Book title and make up the bulk of
-                            the card's content.
-    </Card.Text>
-                    </Card.Body>
-                </Card>
-                <Card style={{ width: '15rem', height: '33rem' }}>
-                    <Card.Img variant="top" src={bookImageThree} style={{ height: '320px' }} />
-                    <Card.Body>
-                        <Card.Title>Book title</Card.Title>
-                        <Card.Text>
-                            Some quick example text to build on the Book title and make up the bulk of
-                            the card's content.
-    </Card.Text>
-                    </Card.Body>
-                </Card>
-                <Card style={{ width: '15rem', height: '33rem' }}>
-                    <Link to='/SingleBookInfo'><Card.Img variant="top" src={bookImageFour} style={{ height: '320px' }} /></Link>
-                    <Card.Body>
-                        <Card.Title>Book title</Card.Title>
-                        <Card.Text>
-                            Some quick example text to build on the Book title and make up the bulk of
-                            the card's content.
-    </Card.Text>
-                    </Card.Body>
-                </Card>
-                <Card style={{ width: '15rem', height: '33rem' }}>
-                    <Link to='/SingleBookInfo'><Card.Img variant="top" src={bookImageFour} style={{ height: '320px' }} /></Link>
-                    <Card.Body>
-                        <Card.Title>Book title</Card.Title>
-                        <Card.Text>
-                            Some quick example text to build on the Book title and make up the bulk of
-                            the card's content.
-    </Card.Text>
-                    </Card.Body>
-                </Card>
-                <Card style={{ width: '15rem', height: '33rem' }}>
-                    <Link to='/SingleBookInfo'><Card.Img variant="top" src={bookImageFour} style={{ height: '320px' }} /></Link>
-                    <Card.Body>
-                        <Card.Title>Book title</Card.Title>
-                        <Card.Text>
-                            Some quick example text to build on the Book title and make up the bulk of
-                            the card's content.
-    </Card.Text>
-                    </Card.Body>
-                </Card>
-                <Card style={{ width: '15rem', height: '33rem' }}>
-                    <Link to='/SingleBookInfo'><Card.Img variant="top" src={bookImageFour} style={{ height: '320px' }} /></Link>
-                    <Card.Body>
-                        <Card.Title>Book title</Card.Title>
-                        <Card.Text>
-                            Some quick example text to build on the Book title and make up the bulk of
-                            the card's content.
-    </Card.Text>
-                    </Card.Body>
-                </Card>
-                <Card style={{ width: '15rem', height: '33rem' }}>
-                    <Link to='/SingleBookInfo'><Card.Img variant="top" src={bookImageFour} style={{ height: '320px' }} /></Link>
-                    <Card.Body>
-                        <Card.Title>Book title</Card.Title>
-                        <Card.Text>
-                            Some quick example text to build on the Book title and make up the bulk of
-                            the card's content.
-    </Card.Text>
-                    </Card.Body>
-                </Card>
-            </div>
-        </>
-    )
+  const [userInput, setUserInput] = useState("");
+  let searchValue = "";
+  let something = false
+
+  const searchItem = (e) => {
+    searchValue = e.target.value;
+  };
+
+  return (
+    <>
+      <h3>Search Books</h3>
+      <hr />
+      <Form inline>
+        <div
+          className="searchBar"
+          style={{ margin: "auto", marginBottom: "30px" }}
+        >
+          <FormControl
+            type="text"
+            placeholder="Search by Title, Author, or Category"
+            onChange={searchItem}
+            className="mr-sm-2"
+            style={{ width: "500px" }}
+          />
+          <Button variant="outline-dark" onClick={() => setUserInput(searchValue)}>
+            Search
+          </Button>
+        </div>
+      </Form>
+      <div className="bookshelf">
+        {BooksArray.map((book) => {
+          if (book.Category === userInput || book.Author === userInput || book.Title === userInput) {
+            something = true
+            {
+              console.log(book.Category);
+              console.log(book.id)
+            }
+            return (
+              <Card
+                key={book.id}
+                style={{
+                  width: "15rem",
+                  height: "31.5rem",
+                  marginBottom: "20px",
+                }}
+              >
+
+                <Link to={"./SingleBookInfo/" + book.id}>
+                  <Card.Img
+                    key={book.id}
+                    variant="top"
+                    src={book.imageUrl}
+                    style={{ height: "320px" }}
+                  />
+                </Link>
+                <Card.Body>
+                  <Card.Title>{book.Title}</Card.Title>
+                  <Card.Text>Author: {book.Author}</Card.Text>
+                </Card.Body>
+              </Card>
+            );
+          } else return
+        })}
+        {something === false && userInput !== '' ? 'Books not found, please refine your search results' : ''}
+      </div>
+    </>
+  );
 }
 
-export default Searchresult
+export default Searchresult;

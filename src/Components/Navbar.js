@@ -1,96 +1,120 @@
-import React, { useState } from "react";
-import { Navbar, Nav, Button, Form, FormControl, NavDropdown } from "react-bootstrap";
-import cart from "../img/shoppingcart.png";
-import { Link } from 'react-router-dom'
-import Logo from '../img/download.png'
+import React from "react";
+import {
+  Navbar,
+  Nav,
+  Button,
+  Form,
+  NavDropdown,
+  Image
+} from "react-bootstrap";
+import cartIMG from "../img/shoppingcart.png";
+import { Link } from "react-router-dom";
+import { useStore } from "../Store/store";
+import { useHistory } from "react-router-dom";
+import bookLogo from "../img/bookLogo.png"
 
 function NavBar() {
-  const [loggedIn, setLoggedIn] = useState(false)
-  const [cartItems, setCartItems] = useState(0)
+  const cart = useStore((state) => state.cart);
+  const user = useStore((state) => state.user);
+  const dispatch = useStore((state) => state.dispatch);
 
-  const logInOut = () => { setLoggedIn(!loggedIn) }
+  const history = useHistory();
+  const reRoute = (e) => history.push("/");
+
+  const logout = (e) => {
+    console.log(user)
+    dispatch({ type: "LOGOUT" })
+    reRoute()
+  };
 
   return (
     <>
-      <Navbar bg="light" variant="light" expand="lg">
-        <Navbar.Brand href="/">
-          {/* <img className='bookLogo' src={Logo} onClick={<Link to='/' />} /> */}
-          Second Chapter
+      <Navbar variant="dark" expand="lg" style={{ backgroundColor: '#caebb7' }}>
+        <Navbar.Brand>
+          <Link to='/' style={{ textDecoration: 'none' }}>
+            <Image src={bookLogo} style={{ height: '40px', width: '40px' }} />
+            <h3 style={{ color: 'grey', fontFamily: "Lucida Console" }}>Second Chapter</h3>
+          </Link>
         </Navbar.Brand>
-        <Form inline>
-        </Form>
-        <NavDropdown title={loggedIn ? 'Hi, Paul' : 'My Account'} id="basic-nav-dropdown" style={{ marginLeft: '70%' }}>
-          <NavDropdown.Item href="#action/3.4">
-            <div className='signInButton'>
-              {!loggedIn ? <Button variant="outline-dark" onClick={logInOut}>
-                <Link to='/LogInPage' style={{ color: 'black' }}>
-                  Sign In
-                </Link>
-              </Button> :
-                <Button variant='outline-dark' onClick={logInOut}>Log Out</Button>
-              }
+        <Form inline></Form>
+        <NavDropdown
+          title={user.accessToken ? `Hi, ${user.user.firstName}` : "My Account"}
+          id="basic-nav-dropdown"
+          style={{ marginLeft: "70%" }}
+        >
+          <NavDropdown.Item to="#action/3.4">
+            <div className="signInButton">
+              {!user.accessToken ? (
+                <Button variant="outline-dark">
+                  <Link to="/LogInPage" style={{ color: "black" }}>
+                    Sign In
+                  </Link>
+                </Button>
+              ) : (
+                <Button variant="outline-dark" onClick={logout}>
+                  <a to='/'>Log Out</a>
+                </Button>
+              )}
             </div>
           </NavDropdown.Item>
-          {loggedIn === false ?
-            <NavDropdown.Item href="#action/3.1">
-              <Link to='/SignUp' style={{ color: 'black' }}>Create an Account</Link>
-            </NavDropdown.Item> : ''}
+          {!user.accessToken ? (
+            <NavDropdown.Item to="#action/3.1">
+              <Link to="/SignUp" style={{ color: "black" }}>
+                Create an Account
+              </Link>
+            </NavDropdown.Item>
+          ) : (
+            ""
+          )}
           <NavDropdown.Divider />
-          {loggedIn ?
-            <NavDropdown.Item href="#action/3.1">
-              <Link to='/UserProfile' style={{ color: 'black' }}>My Page</Link>
+          {user.accessToken ? (
+            <NavDropdown.Item to="#action/3.1">
+              <Link to="/UserProfile" style={{ color: "black" }}>
+                My Page
+              </Link>
             </NavDropdown.Item>
-            : ''}
-          {loggedIn ?
-            <NavDropdown.Item href="#action/3.1">
-              <Link to='/MyBooks' style={{ color: 'black' }}>My Books</Link>
+          ) : (
+            ""
+          )}
+
+          {user.accessToken ? (
+            <NavDropdown.Item to="#action/3.4">
+              Credit Balance <h5>${user.user.creditBalance}</h5>{" "}
             </NavDropdown.Item>
-            : ''}
-          {loggedIn ?
-            <NavDropdown.Item>
-              <Link to='/OrderHistory' style={{ color: 'black' }}>
-                Order History
-            </Link>
-            </NavDropdown.Item>
-            : ''}
-          {loggedIn ?
-            <NavDropdown.Item href="#action/3.4">Credit Balance <h5>$42.76</h5> </NavDropdown.Item>
-            : ''}
+          ) : (
+            ""
+          )}
         </NavDropdown>
 
-        {loggedIn ? <Nav.Link href="/shoppingCart">
-          <img className='cart' src={cart} onClick={<Link to='/ShoppingCart' />} />
-        </Nav.Link>
-          : ''}
-        {loggedIn ?
-          <h5>{cartItems}</h5>
-          : ''}
+        {user.accessToken ? (
+          <Link to="/shoppingCart">
+            <img
+              className="cart"
+              src={cartIMG}
+            />
+          </Link>
+        ) : (
+          ""
+        )}
+        {user.accessToken ? (
+          <h5>{cart.length - 1}</h5>
+        ) : (
+          ""
+        )}
       </Navbar>
 
-      <Navbar bg="light" variant="light" >
-        <Form inline style={{ margin: 'auto' }}>
-          <div className='searchBar'>
-            <FormControl type="text" placeholder="Search by Title, Author, or Category" className="mr-sm-2" style={{ width: '500px' }} />
-          </div>
-          <Button variant="outline-dark">
-            <Link to='/Searchresult' style={{ color: 'black' }}>
-              Search
-            </Link>
-          </Button>
-        </Form>
-      </Navbar>
-      <Navbar className='navbar3' bg="light" variant="light" style={{ paddingBottom: '20px' }}>
-        <Nav className="mr-auto" style={{ margin: 'auto' }}>
-          <Nav.Link href="/Allbooks">| All |</Nav.Link>
-          <Nav.Link href="/Searchresults/Coding">| Coding |</Nav.Link>
-          <Nav.Link href="/Searchresults/Art">| Art |</Nav.Link>
-          <Nav.Link href="/Searchresults/History">| History |</Nav.Link>
-          <Nav.Link href="/Searchresults/Math">| Math |</Nav.Link>
-          <Nav.Link href="/Searchresults/Pets">| Pets |</Nav.Link>
-          <Nav.Link href="/Searchresults/Cooking">| Cooking |</Nav.Link>
+      <Navbar variant="light" style={{ backgroundColor: '#caebb7', fontFamily: "Lucida Console" }}>
+        <Nav className="mr-auto" style={{ margin: "auto" }}>
+          <Link to="/Allbooks" style={{ color: 'grey' }}><h4>| All |</h4></Link>
+          <Link to="/AllArtBooks" style={{ color: 'grey' }}><h4>| Art |</h4></Link>
+          <Link to="/AllCodingBooks" style={{ color: 'grey' }}><h4>| Coding |</h4></Link>
+          <Link to="/AllCookingBooks" style={{ color: 'grey' }}><h4>| Cooking |</h4></Link>
+          <Link to="/AllHistoryBooks" style={{ color: 'grey' }}><h4>| History |</h4></Link>
+          <Link to="/AllMathBooks" style={{ color: 'grey' }}><h4>| Math |</h4></Link>
+          <Link to="/AllPetsBooks" style={{ color: 'grey' }}><h4>| Pets |</h4></Link>
+          <Link to="/Searchresult" style={{ color: 'grey' }}><h4>| Search |</h4></Link>
         </Nav>
-        <Form inline>
-        </Form>
+        <Form inline></Form>
       </Navbar>
     </>
   );
