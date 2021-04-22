@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom'
 import { BooksArray } from '../Components/BooksArray'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
-import {useStore} from "../Store/store"
+import { useStore } from "../Store/store"
 
 
 function AllBooksPage() {
     const dispatch = useStore((state) => state.dispatch)
-    const user = useStore((state)=> state.user)
+    const user = useStore((state) => state.user)
 
     return (
         <>
@@ -27,9 +27,6 @@ function AllBooksPage() {
                                         Author: {book.Author}
                                     </Card.Text>
                                 </Card.Body>
-                                <Card.Footer className="text-muted">
-                                    <Button variant="outline-dark">Buy for ${book.PurchasePrice}</Button>
-                                </Card.Footer>
                             </Card>
                         )
                     }

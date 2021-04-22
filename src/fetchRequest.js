@@ -13,7 +13,7 @@ export const loginRequest = (email, password) => {
 
 export const logoutRequest = (token) => {
   return fetch(baseURL + "logout", {
-    //   headers: { Authorization: "Bearer " + token },
+    headers: { Authorization: "Bearer " + token },
   }).then((res) => res.json());
 };
 

@@ -22,6 +22,7 @@ function NavBar() {
   const history = useHistory();
   const t = (e) => history.push("/");
   const logout = (e) => {
+    console.log(user)
     logoutRequest(user.accessToken).then(() => dispatch({ type: "LOGOUT" }));
     localStorage.removeItem("user");
     t();
@@ -70,15 +71,6 @@ function NavBar() {
             <NavDropdown.Item href="#action/3.1">
               <Link to="/UserProfile" style={{ color: "black" }}>
                 My Page
-              </Link>
-            </NavDropdown.Item>
-          ) : (
-            ""
-          )}
-          {user.accessToken ? (
-            <NavDropdown.Item href="#action/3.1">
-              <Link to="/MyBooks" style={{ color: "black" }}>
-                My Books
               </Link>
             </NavDropdown.Item>
           ) : (

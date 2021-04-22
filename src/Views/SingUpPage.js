@@ -120,7 +120,7 @@ function SignUpPage() {
         <Button
           variant="outline-dark"
           type="submit"
-          // onClick={handleLogin}
+        // onClick={handleLogin}
         >
           Submit
         </Button>

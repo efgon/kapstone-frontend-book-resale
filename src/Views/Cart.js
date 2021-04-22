@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   Card,
   ListGroup,
@@ -9,14 +9,33 @@ import {
 } from "react-bootstrap";
 import bookImage from "../book img/javascript.jpeg";
 import { BooksArray } from "../Components/BooksArray";
-import { useStore, REMOVEBOOK } from "../Store/store";
+import { patchUser } from "../fetchRequest";
+import { useStore, REMOVEBOOK, CREDITBALANCE } from "../Store/store";
+import { Link } from 'react-router-dom'
 
 function Cart() {
   const dispatch = useStore((state) => state.dispatch);
   const cart = useStore((state) => state.cart);
+  const user = useStore((state) => state.user)
   let cartTotal = 0;
+  // const [usersCreditBalance, setUsersCreditBalance] = useState({ user: user.creditBalance })
 
-  console.log(cart);
+
+  // console.log(user.user.creditBalance)
+
+
+  // function handleUserPurchase() {
+  //   setUsersCreditBalance(user.user.creditBalance - cartTotal.toFixed(2))
+  //   // patchUser()
+  //   // .then((purchaseData) => dispatch({ type: CREDITBALANCE, payload: purchaseData }))
+  //   // .then(localStorage.setItem("user", user))
+  //   console.log(usersCreditBalance)
+  // }
+
+  // useEffect(() => {
+  //   setUsersCreditBalance(user.user.creditBalance - cartTotal.toFixed(2))
+  // }, [handleUserPurchase])
+
   return (
     <>
       <h1>Your Cart</h1>
@@ -47,8 +66,6 @@ function Cart() {
                   </Card.Subtitle>
                   <hr />
                   <ListGroup className="list-group-flush">
-                    {/* <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
-                                <ListGroupItem>Vestibulum at eros</ListGroupItem> */}
                     <ListGroupItem>Price: ${book.PurchasePrice}</ListGroupItem>
                   </ListGroup>
                 </Card.Body>
@@ -77,9 +94,14 @@ function Cart() {
         <Card style={{ width: "250px" }}>
           <Card.Header>Checkout</Card.Header>
           <Card.Body>
-            <Card.Title>Cart Total: ${cartTotal.toFixed(2)}</Card.Title>
-            <Card.Text>Shipping Rates may vary by location</Card.Text>
-            <Button variant="outline-dark">Checkout</Button>
+            <Card.Title>{cartTotal.toFixed(2) < 50 ? "Cart Total:" + "$" + cartTotal.toFixed(2) : <h4 style={{ color: 'red' }}>Not Enough Credits</h4>}</Card.Title>
+            {/* <Card.Text>Your Current Balance: ${user.user.creditBalance}</Card.Text> */}
+            {/* {user.user.creditBalance > cartTotal.toFixed(2) ? */}
+            <Link to='/ThankYouPage'>
+              <Button variant="outline-dark"
+              // onClick={() => cart.splice()}
+              >Checkout</Button>
+            </Link>
           </Card.Body>
         </Card>
       </div>

@@ -22,9 +22,6 @@ function AllBooksPage() {
                                         Author: {book.Author}
                                     </Card.Text>
                                 </Card.Body>
-                                <Card.Footer className="text-muted">
-                                    <Button variant="outline-dark">Buy for ${book.PurchasePrice}</Button>
-                                </Card.Footer>
                             </Card>
                         )
                     }

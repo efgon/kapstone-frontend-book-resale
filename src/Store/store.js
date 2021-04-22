@@ -41,8 +41,8 @@ const reducer = (state, action) => {
     case LOGIN:
       return { user: action.payload };
     case LOGOUT:
-      localStorage.removeItem("user");
-      return { user: {} };
+      // localStorage.removeItem("user");
+      return { accessToken: '', user: {} };
     case GET_USER:
       return { ...state, user: action.payload };
     case SIGNUP:
@@ -52,7 +52,7 @@ const reducer = (state, action) => {
     case LASTNAME:
       return { ...state, user: action.payload };
     case CREDITBALANCE:
-      return { ...state, user: action.payload };
+      return { ...state, user: { ...state.user, creditBalance: action.payload } };
     case UPDATEUSER:
       return { ...state, user: { ...state.user, user: action.payload } };
     case ADDBOOK:

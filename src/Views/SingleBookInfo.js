@@ -62,8 +62,10 @@ function SingleBookInfo(props) {
                   <Card.Text>{singleBook.Description}</Card.Text>
                 </Card.Body>
                 <Card.Footer className="text-muted">
+                  ${singleBook.PurchasePrice}
+                  <hr />
                   <Button variant="outline-dark" onClick={handleAddBookToCart}>
-                    Buy for ${singleBook.PurchasePrice}
+                    Add to Cart
                   </Button>
                 </Card.Footer>
               </Card>

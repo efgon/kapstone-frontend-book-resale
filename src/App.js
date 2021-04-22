@@ -1,5 +1,5 @@
 import React from "react";
-import LoginPage from "./Views/Loginpage";
+import LoginPage from "./Views/LoginPage";
 import SignUpPage from "./Views/SingUpPage";
 import NavBar from "./Components/Navbar";
 import { Route, Switch } from "react-router-dom";
@@ -7,7 +7,7 @@ import Home from "./Views/Home";
 import Footer from "./Components/Footer";
 import SingleBookInfo from "./Views/SingleBookInfo";
 import Header from "./Components/Header";
-import Searchresult from "./Views/Searchresult";
+import Searchresult from "./Views/SearchResult";
 import UserProfilePage from "./Views/UserProfile";
 import Cart from "./Views/Cart";
 import AddressPage from "./Views/AddressPage";
@@ -22,6 +22,7 @@ import AllCodingBooks from "./Views/AllCodingBooks";
 import AllMathBooks from "./Views/AllMathBooks";
 import AllPetsBooks from "./Views/AllPetsBooks";
 import AllHistoryBooks from "./Views/AllHistoryBooks";
+import ThankYouPage from './Views/ThankYouPage'
 
 function App() {
   return (
@@ -52,6 +53,7 @@ function App() {
         <Route exact path="/AllMathBooks" component={AllMathBooks} />
         <Route exact path="/AllPetsBooks" component={AllPetsBooks} />
         <Route exact path="/MyBooks" component={MyBooks} />
+        <Route exact path="/ThankYouPage" component={ThankYouPage} />
       </Switch>
       <Footer />
     </div>
