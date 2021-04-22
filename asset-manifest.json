@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/kapstone-frontend-book-resale/static/css/main.6f0cb0ad.chunk.css",
+    "main.js": "/kapstone-frontend-book-resale/static/js/main.d0f8a3a4.chunk.js",
+    "main.js.map": "/kapstone-frontend-book-resale/static/js/main.d0f8a3a4.chunk.js.map",
+    "runtime-main.js": "/kapstone-frontend-book-resale/static/js/runtime-main.05bc4396.js",
+    "runtime-main.js.map": "/kapstone-frontend-book-resale/static/js/runtime-main.05bc4396.js.map",
+    "static/css/2.4c97ca4f.chunk.css": "/kapstone-frontend-book-resale/static/css/2.4c97ca4f.chunk.css",
+    "static/js/2.6c5c0b68.chunk.js": "/kapstone-frontend-book-resale/static/js/2.6c5c0b68.chunk.js",
+    "static/js/2.6c5c0b68.chunk.js.map": "/kapstone-frontend-book-resale/static/js/2.6c5c0b68.chunk.js.map",
+    "index.html": "/kapstone-frontend-book-resale/index.html",
+    "static/css/2.4c97ca4f.chunk.css.map": "/kapstone-frontend-book-resale/static/css/2.4c97ca4f.chunk.css.map",
+    "static/css/main.6f0cb0ad.chunk.css.map": "/kapstone-frontend-book-resale/static/css/main.6f0cb0ad.chunk.css.map",
+    "static/js/2.6c5c0b68.chunk.js.LICENSE.txt": "/kapstone-frontend-book-resale/static/js/2.6c5c0b68.chunk.js.LICENSE.txt",
+    "static/media/billy.64ba8a17.jpeg": "/kapstone-frontend-book-resale/static/media/billy.64ba8a17.jpeg",
+    "static/media/book image 1.730c09bb.jpeg": "/kapstone-frontend-book-resale/static/media/book image 1.730c09bb.jpeg",
+    "static/media/book image 2.bab94efd.jpeg": "/kapstone-frontend-book-resale/static/media/book image 2.bab94efd.jpeg",
+    "static/media/book image 3.eabbb564.jpeg": "/kapstone-frontend-book-resale/static/media/book image 3.eabbb564.jpeg",
+    "static/media/bookLogo.24c1b123.png": "/kapstone-frontend-book-resale/static/media/bookLogo.24c1b123.png",
+    "static/media/shoppingcart.e0ef8250.png": "/kapstone-frontend-book-resale/static/media/shoppingcart.e0ef8250.png",
+    "static/media/snhu.0ca8cb62.jpeg": "/kapstone-frontend-book-resale/static/media/snhu.0ca8cb62.jpeg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.05bc4396.js",
+    "static/css/2.4c97ca4f.chunk.css",
+    "static/js/2.6c5c0b68.chunk.js",
+    "static/css/main.6f0cb0ad.chunk.css",
+    "static/js/main.d0f8a3a4.chunk.js"
+  ]
+}
