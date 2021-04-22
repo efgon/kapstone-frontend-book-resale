@@ -13,8 +13,6 @@ import Cart from "./Views/Cart";
 import AddressPage from "./Views/AddressPage";
 import AccountSettings from "./Views/AccountSettings";
 import AllBooksPage from "./Views/AllBooksPage";
-import MyBooks from "./Views/MyBooks";
-import { booksArray } from "./Components/BooksArray";
 import "./Style/app.css";
 import AllArtBooks from "./Views/AllArtBooks";
 import AllCookingBooks from "./Views/AllCookingBooks";
@@ -52,7 +50,6 @@ function App() {
         <Route exact path="/AllHistoryBooks" component={AllHistoryBooks} />
         <Route exact path="/AllMathBooks" component={AllMathBooks} />
         <Route exact path="/AllPetsBooks" component={AllPetsBooks} />
-        <Route exact path="/MyBooks" component={MyBooks} />
         <Route exact path="/ThankYouPage" component={ThankYouPage} />
       </Switch>
       <Footer />

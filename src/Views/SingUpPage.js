@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import { Button, Form, Col } from "react-bootstrap";
 import { createUser } from "../fetchRequest";
-import { useStore, LOGIN, SIGNUP } from "../Store/store";
-import { loginRequest } from "../fetchRequest";
+import { useStore, SIGNUP } from "../Store/store";
 import { useHistory } from "react-router-dom";
 
 function SignUpPage() {
   const dispatch = useStore((state) => state.dispatch);
-  const user = useStore((state) => state.user);
   const history = useHistory();
 
   const [userData, setUserdata] = useState({
@@ -34,11 +32,6 @@ function SignUpPage() {
       userData.password
     );
     dispatch({ type: SIGNUP, payload: userData });
-    // if (userData.statusCode === 200) {
-    // loginRequest(userData.email, userData.password).then((userData) =>
-    //   dispatch({ type: LOGIN, payload: userData })
-    // )
-    // }
     reRoute();
   };
 
@@ -120,7 +113,6 @@ function SignUpPage() {
         <Button
           variant="outline-dark"
           type="submit"
-        // onClick={handleLogin}
         >
           Submit
         </Button>

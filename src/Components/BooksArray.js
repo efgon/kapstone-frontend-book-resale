@@ -1,4 +1,3 @@
-//Tags.... JavaScrip, Coding, React, Vue, HTML, CSS,
 
 export const BooksArray = [
   {

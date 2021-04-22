@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Form, Button, Col } from "react-bootstrap";
-import { UPDATEUSER, useStore, GET_USER } from "../Store/store";
-import { patchUser, logoutRequest } from "../fetchRequest";
+import { Form, Button } from "react-bootstrap";
+import { UPDATEUSER, useStore } from "../Store/store";
+import { patchUser } from "../fetchRequest";
 import { useHistory } from "react-router-dom";
 
 function AccountSettings() {
@@ -37,7 +37,7 @@ function AccountSettings() {
     setUserForm((state) => ({ ...state, [inputName]: inputValue }));
   };
 
-  
+
 
   return (
     <>
@@ -75,7 +75,7 @@ function AccountSettings() {
               Submit
             </Button>
           </Form>
-       
+
         </div>
       </div>
     </>

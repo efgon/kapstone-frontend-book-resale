@@ -1,5 +1,5 @@
 import create from "zustand";
-import { devtools, redux, persist } from "zustand/middleware";
+import { devtools, redux } from "zustand/middleware";
 
 const initState = {
   user: {
@@ -9,19 +9,7 @@ const initState = {
     lastName: "",
     creditBalance: 50.0,
   },
-  cart: [
-    {
-      // book: [
-      // {
-      // id: 0,
-      // title: "",
-      // author: "",
-      // imageURL: "",
-      // purchasePrice: 0,
-      //   },
-      // ]
-    },
-  ],
+  cart: [{}]
 };
 
 export const LOGIN = "LOGIN";
@@ -64,9 +52,6 @@ const reducer = (state, action) => {
   }
 };
 
-// export const useStore = create(persist(devtools(redux(reducer, initState))), {
-//   name: "storage",
-// });
 export const useStore = create(devtools(redux(reducer, initState)), {
   name: "storage",
 });

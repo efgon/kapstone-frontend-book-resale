@@ -2,9 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { BooksArray } from '../Components/BooksArray'
 import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
 
-function AllBooksPage() {
+function AllMathBooks() {
     return (
         <>
             <h3>Math Books</h3>
@@ -33,4 +32,4 @@ function AllBooksPage() {
     )
 }
 
-export default AllBooksPage
+export default AllMathBooks

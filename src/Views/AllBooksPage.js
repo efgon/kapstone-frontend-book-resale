@@ -2,10 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { BooksArray } from "../Components/BooksArray";
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
 
 function AllBooksPage(props) {
-  const { productList } = props;
 
   return (
     <>

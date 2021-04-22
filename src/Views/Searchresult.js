@@ -1,14 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { Image, Card, Button, Form, FormControl } from "react-bootstrap";
-import bookImageOne from "../book img/interviewBook.jpeg";
-import bookImageTwo from "../book img/vanGogh.jpeg";
-import bookImageThree from "../book img/javascript.jpeg";
-import bookImageFour from "../book img/mathBook.jpeg";
+import React, { useState } from "react";
+import { Card, Button, Form, FormControl } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { BooksArray } from "../Components/BooksArray";
 
 function Searchresult() {
-  //   const [searchBooks, setSearchBooks] = useState([]);
+
   const [userInput, setUserInput] = useState("");
   let searchValue = "";
   let something = false
@@ -16,29 +12,6 @@ function Searchresult() {
   const searchItem = (e) => {
     searchValue = e.target.value;
   };
-
-  //   function handleSubmit(e) {
-  //     e.preventDefault();
-  //     if (e.keyCode === 13) {
-  //       setUserInput(searchValue);
-  //     } 
-  //   }
-
-  //   useEffect(() => {
-  //     window.addEventListener("keyup", handleSubmit);
-  //     return () => window.removeEventListener("keyup", handleSubmit);
-  //   },[userInput]);
-
-  //   const bookSearch = (event) => {
-  //     (BooksArray.map((book, index) => {
-  //        console.log(userInput)
-  //         if (book.Tags[index] === userInput) {
-  //             console.log(book.Tags[index])
-  //             setSearchBooks(book)
-  //         } else return;
-  //       })
-  //     );
-  //   };
 
   return (
     <>

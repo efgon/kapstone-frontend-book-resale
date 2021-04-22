@@ -3,8 +3,6 @@ import Carousel from 'react-bootstrap/Carousel'
 import KenzieAdd from '../img/kenzieAdd.jpeg'
 import FCCad from '../img/freecodeCampAd.jpeg'
 import SNHUad from '../img/snhu.jpeg'
-import BillyPic from '../book img/billy.jpeg'
- 
 
 function Header() {
     return (
@@ -12,7 +10,6 @@ function Header() {
             <Carousel style={{ margin: 'auto', height: '80px', width: '900px' }} >
                 <Carousel.Item interval={7000}>
                     <img
-                        // onClick={()=> window.location.assign("www.google.com")}
                         style={{ height: '80px' }}
                         className="d-block w-100"
                         src={KenzieAdd}
@@ -58,23 +55,6 @@ function Header() {
                         </a>
                     </Carousel.Caption>
                 </Carousel.Item>
-                {/* <Carousel.Item interval={7000} style={{ width: '300px' }}>
-                    <img
-                        style={{ height: '80px' }}
-                        className="d-block w-100"
-                        src={BillyPic}
-                        alt="Missing person"
-                    />
-
-                    <Carousel.Caption>
-                        <a
-                            href='https://www.freecodecamp.org/'
-                            style={{ color: 'white' }}
-                        >
-                            <h3>Have you seen me?</h3>
-                        </a>
-                    </Carousel.Caption>
-                </Carousel.Item> */}
             </Carousel>
         </div>
     )

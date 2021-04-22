@@ -6,19 +6,17 @@ import { useHistory } from "react-router-dom";
 
 function LoginPage(props) {
   const dispatch = useStore((state) => state.dispatch);
-  const user = useStore((state) => state.user);
-
   const history = useHistory();
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
-  console.log(user)
+
   const handleLogin = (e) => {
     const reRoute = (e) => history.push("/");
     e.preventDefault();
     loginRequest(formData.email, formData.password).then((userData) => {
-      // localStorage.setItem("user", JSON.stringify(userData));
       dispatch({ type: LOGIN, payload: userData });
     });
     reRoute();
@@ -29,17 +27,6 @@ function LoginPage(props) {
     const inputValue = e.target.value;
     setFormData((state) => ({ ...state, [inputName]: inputValue }));
   };
-
-  useEffect(() => {
-    window.addEventListener("message", handleMessage);
-    return () => {
-      window.addEventListener("message", handleMessage);
-    };
-  }, []);
-
-  function handleMessage(e) {
-    //console.log(e);
-  }
 
   return (
     <>
@@ -76,7 +63,6 @@ function LoginPage(props) {
         <Button variant="outline-dark" type="submit">
           Submit
         </Button>
-        <div>{user.message ? user.message : ""}</div>
       </Form>
     </>
   );

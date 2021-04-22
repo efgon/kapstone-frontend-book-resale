@@ -33,14 +33,6 @@ export const createUser = async (firstName, lastName, email, password) => {
       password,
     }),
   }).then((res) => res.json());
-
-  // if (!res.ok) {
-  //   throw new Error("bad response", res);
-  // }
-  // const res_1 = res;
-  // const data = await res_1.json();
-
-  // return console.log(data);
 };
 
 export const getUser = (email) => {
@@ -48,7 +40,6 @@ export const getUser = (email) => {
 };
 
 export const patchUser = (token, firstName, lastName, email, creditBalance) => {
-  // console.log(typeof email, typeof firstName, typeof lastName);
   return fetch(baseURL + `users/${email}`, {
     method: "PATCH",
     headers: {

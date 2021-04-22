@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { BooksArray } from "../Components/BooksArray";
-import { Button, Card } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 
 function AllBooksPage() {
   return (

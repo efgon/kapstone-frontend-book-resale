@@ -20,10 +20,7 @@ function UserProfile() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    const newUserInfo = {
-      //   firstName,
-      //   lastName,
-    };
+    const newUserInfo = {};
     getUser(userInfo.token, newUserInfo).then((data) => {
       console.log(data);
       setUser(data.user);
@@ -46,7 +43,6 @@ function UserProfile() {
         <Card border="light" style={{ width: "18rem", marginBottom: "20px" }}>
           <Card.Body>
             <Card.Title>Account Settings</Card.Title>
-            {/* <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle> */}
             <Card.Text>
               First Name: {userInfo.user.firstName}
               <br />
@@ -65,15 +61,13 @@ function UserProfile() {
         <Card border="light" style={{ width: "18rem", marginBottom: "20px" }}>
           <Card.Body>
             <Card.Title>Delete Account</Card.Title>
-            {/* <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle> */}
-            {/* <Card.Text>Review your order history</Card.Text> */}
             <Button
-            variant="outline-dark"
-            type="submit"
-            style={{ marginTop: "20px" }}
-            onClick={handleDelete}
-          >
-            Delete Account
+              variant="outline-dark"
+              type="submit"
+              style={{ marginTop: "20px" }}
+              onClick={handleDelete}
+            >
+              Delete Account
           </Button>
           </Card.Body>
         </Card>

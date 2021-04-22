@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Image } from "react-bootstrap";
-import bookImage from "../book img/mathBook.jpeg";
 import { Card, Button } from "react-bootstrap";
 import { BooksArray } from "../Components/BooksArray";
 import { useStore, ADDBOOK } from "../Store/store";
@@ -21,7 +20,6 @@ function SingleBookInfo(props) {
   function handleAddBookToCart(e) {
     BooksArray.map((singleBook) => {
       if (singleBook.id == selectedBookId) {
-        console.log(singleBook.Title);
         const newBook = {
           id: singleBook.id,
           Title: singleBook.Title,
@@ -31,8 +29,6 @@ function SingleBookInfo(props) {
         };
         setMyCart(newBook);
         dispatch({ type: ADDBOOK, payload: newBook });
-        // console.log(myCart);
-        console.log(newBook);
       }
     });
   }
