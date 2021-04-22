@@ -2,7 +2,7 @@ import create from "zustand";
 import { devtools, redux, persist } from "zustand/middleware";
 
 const initState = {
-  user: JSON.parse(localStorage.getItem("user")) || {
+  user: {
     token: "",
     email: "",
     firstName: "",
@@ -41,7 +41,7 @@ const reducer = (state, action) => {
     case LOGIN:
       return { user: action.payload };
     case LOGOUT:
-      // localStorage.removeItem("user");
+      localStorage.removeItem("user");
       return { accessToken: '', user: {} };
     case GET_USER:
       return { ...state, user: action.payload };
@@ -52,7 +52,7 @@ const reducer = (state, action) => {
     case LASTNAME:
       return { ...state, user: action.payload };
     case CREDITBALANCE:
-      return { ...state, user: { ...state.user, creditBalance: action.payload } };
+      return { ...state, user: { ...state.user, user: { ...state.user, creditBalance: action.payload } } };
     case UPDATEUSER:
       return { ...state, user: { ...state.user, user: action.payload } };
     case ADDBOOK:
@@ -64,6 +64,9 @@ const reducer = (state, action) => {
   }
 };
 
-export const useStore = create(persist(devtools(redux(reducer, initState))), {
+// export const useStore = create(persist(devtools(redux(reducer, initState))), {
+//   name: "storage",
+// });
+export const useStore = create(devtools(redux(reducer, initState)), {
   name: "storage",
 });

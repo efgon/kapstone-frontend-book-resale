@@ -13,15 +13,12 @@ function LoginPage(props) {
     email: "",
     password: "",
   });
-console.log(user)
+  console.log(user)
   const handleLogin = (e) => {
     const reRoute = (e) => history.push("/");
-    // console.log(formData.email)
-    // console.log(formData.password)
     e.preventDefault();
     loginRequest(formData.email, formData.password).then((userData) => {
-      // console.log(userData)
-      localStorage.setItem("user", JSON.stringify(userData));
+      // localStorage.setItem("user", JSON.stringify(userData));
       dispatch({ type: LOGIN, payload: userData });
     });
     reRoute();

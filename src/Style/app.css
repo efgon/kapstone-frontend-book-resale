@@ -87,3 +87,8 @@ img {
     width: 60px;
     height: 60px;
 }
+.checkoutBox {
+    padding-right: 100px;
+     display: flex;
+     justify-content: flex-end;
+}

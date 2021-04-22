@@ -11,22 +11,23 @@ function Searchresult() {
   //   const [searchBooks, setSearchBooks] = useState([]);
   const [userInput, setUserInput] = useState("");
   let searchValue = "";
+  let something = false
 
   const searchItem = (e) => {
     searchValue = e.target.value;
   };
 
-//   function handleSubmit(e) {
-//     e.preventDefault();
-//     if (e.keyCode === 13) {
-//       setUserInput(searchValue);
-//     } 
-//   }
+  //   function handleSubmit(e) {
+  //     e.preventDefault();
+  //     if (e.keyCode === 13) {
+  //       setUserInput(searchValue);
+  //     } 
+  //   }
 
-//   useEffect(() => {
-//     window.addEventListener("keyup", handleSubmit);
-//     return () => window.removeEventListener("keyup", handleSubmit);
-//   },[userInput]);
+  //   useEffect(() => {
+  //     window.addEventListener("keyup", handleSubmit);
+  //     return () => window.removeEventListener("keyup", handleSubmit);
+  //   },[userInput]);
 
   //   const bookSearch = (event) => {
   //     (BooksArray.map((book, index) => {
@@ -55,16 +56,18 @@ function Searchresult() {
             className="mr-sm-2"
             style={{ width: "500px" }}
           />
-          <Button variant="outline-dark" onClick={()=>setUserInput(searchValue)}>
+          <Button variant="outline-dark" onClick={() => setUserInput(searchValue)}>
             Search
           </Button>
         </div>
       </Form>
       <div className="bookshelf">
         {BooksArray.map((book) => {
-          if (book.Category === userInput) {
+          if (book.Category === userInput || book.Author === userInput || book.Title === userInput) {
+            something = true
             {
               console.log(book.Category);
+              console.log(book.id)
             }
             return (
               <Card
@@ -75,7 +78,7 @@ function Searchresult() {
                   marginBottom: "20px",
                 }}
               >
-                {console.log(book.Title)}
+
                 <Link to={"./SingleBookInfo/" + book.id}>
                   <Card.Img
                     key={book.id}
@@ -90,8 +93,9 @@ function Searchresult() {
                 </Card.Body>
               </Card>
             );
-          } else return;
+          } else return
         })}
+        {something === false && userInput !== '' ? 'Books not found, please refine your search results' : ''}
       </div>
     </>
   );

@@ -21,18 +21,22 @@ function NavBar() {
 
   const history = useHistory();
   const t = (e) => history.push("/");
+
   const logout = (e) => {
     console.log(user)
-    logoutRequest(user.accessToken).then(() => dispatch({ type: "LOGOUT" }));
-    localStorage.removeItem("user");
-    t();
-    window.location.reload();
+    dispatch({ type: "LOGOUT" })
+    t()
+    // logoutRequest(user.accessToken)
+    //   .then(() => dispatch({ type: "LOGOUT" }))
+    //   .then(() => t())
+    // localStorage.removeItem("user");
+    // t();
   };
 
   return (
     <>
       <Navbar bg="light" variant="light" expand="lg">
-        <Navbar.Brand href="/">
+        <Navbar.Brand to="/">
           {/* <img className='bookLogo' src={Logo} onClick={<Link to='/' />} /> */}
           Second Chapter
         </Navbar.Brand>
@@ -42,7 +46,7 @@ function NavBar() {
           id="basic-nav-dropdown"
           style={{ marginLeft: "70%" }}
         >
-          <NavDropdown.Item href="#action/3.4">
+          <NavDropdown.Item to="#action/3.4">
             <div className="signInButton">
               {!user.accessToken ? (
                 <Button variant="outline-dark">
@@ -52,13 +56,13 @@ function NavBar() {
                 </Button>
               ) : (
                 <Button variant="outline-dark" onClick={logout}>
-                  Log Out
+                  <a to='/'>Log Out</a>
                 </Button>
               )}
             </div>
           </NavDropdown.Item>
           {!user.accessToken ? (
-            <NavDropdown.Item href="#action/3.1">
+            <NavDropdown.Item to="#action/3.1">
               <Link to="/SignUp" style={{ color: "black" }}>
                 Create an Account
               </Link>
@@ -68,7 +72,7 @@ function NavBar() {
           )}
           <NavDropdown.Divider />
           {user.accessToken ? (
-            <NavDropdown.Item href="#action/3.1">
+            <NavDropdown.Item to="#action/3.1">
               <Link to="/UserProfile" style={{ color: "black" }}>
                 My Page
               </Link>
@@ -78,7 +82,7 @@ function NavBar() {
           )}
 
           {user.accessToken ? (
-            <NavDropdown.Item href="#action/3.4">
+            <NavDropdown.Item to="#action/3.4">
               Credit Balance <h5>${user.user.creditBalance}</h5>{" "}
             </NavDropdown.Item>
           ) : (
@@ -87,13 +91,13 @@ function NavBar() {
         </NavDropdown>
 
         {user.accessToken ? (
-          <Nav.Link href="/shoppingCart">
+          <Link to="/shoppingCart">
             <img
               className="cart"
               src={cartIMG}
-              onClick={<Link to="/ShoppingCart" />}
+            // onClick={<Link to="/ShoppingCart" />}
             />
-          </Nav.Link>
+          </Link>
         ) : (
           ""
         )}
@@ -113,14 +117,14 @@ function NavBar() {
         style={{ paddingBottom: "20px" }}
       >
         <Nav className="mr-auto" style={{ margin: "auto" }}>
-          <Nav.Link href="/Allbooks">| All |</Nav.Link>
-          <Nav.Link href="/AllArtBooks">| Art |</Nav.Link>
-          <Nav.Link href="/AllCodingBooks">| Coding |</Nav.Link>
-          <Nav.Link href="/AllCookingBooks">| Cooking |</Nav.Link>
-          <Nav.Link href="/AllHistoryBooks">| History |</Nav.Link>
-          <Nav.Link href="/AllMathBooks">| Math |</Nav.Link>
-          <Nav.Link href="/AllPetsBooks">| Pets |</Nav.Link>
-          <Nav.Link href="/Searchresult">| Search |</Nav.Link>
+          <Link to="/Allbooks" style={{ color: 'grey' }}>| All |</Link>
+          <Link to="/AllArtBooks" style={{ color: 'grey' }}>| Art |</Link>
+          <Link to="/AllCodingBooks" style={{ color: 'grey' }}>| Coding |</Link>
+          <Link to="/AllCookingBooks" style={{ color: 'grey' }}>| Cooking |</Link>
+          <Link to="/AllHistoryBooks" style={{ color: 'grey' }}>| History |</Link>
+          <Link to="/AllMathBooks" style={{ color: 'grey' }}>| Math |</Link>
+          <Link to="/AllPetsBooks" style={{ color: 'grey' }}>| Pets |</Link>
+          <Link to="/Searchresult" style={{ color: 'grey' }}>| Search |</Link>
         </Nav>
         <Form inline></Form>
       </Navbar>

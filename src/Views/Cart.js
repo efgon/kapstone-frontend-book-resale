@@ -26,9 +26,9 @@ function Cart() {
 
   // function handleUserPurchase() {
   //   setUsersCreditBalance(user.user.creditBalance - cartTotal.toFixed(2))
-  //   // patchUser()
-  //   // .then((purchaseData) => dispatch({ type: CREDITBALANCE, payload: purchaseData }))
-  //   // .then(localStorage.setItem("user", user))
+  //   patchUser()
+  //     .then((purchaseData) => dispatch({ type: CREDITBALANCE, payload: purchaseData }))
+  //     .then(localStorage.setItem("user", user))
   //   console.log(usersCreditBalance)
   // }
 
@@ -39,6 +39,28 @@ function Cart() {
   return (
     <>
       <h1>Your Cart</h1>
+      <div className='checkoutBox'>
+        <div className="checkout">
+          {cart.slice(1, cart.length).forEach((bookInCart) => {
+            cartTotal += bookInCart.PurchasePrice;
+          })}
+
+        </div>
+        <Card style={{ width: "250px" }}>
+          <Card.Header>Checkout</Card.Header>
+          <Card.Body>
+            <Card.Title>Cart Total: ${cartTotal.toFixed(2)}</Card.Title>
+            <Card.Title>{cartTotal.toFixed(2) < 50 ? '' : <h4 style={{ color: 'red' }}>Not Enough Credits</h4>}</Card.Title>
+            {/* <Card.Text>Your Current Balance: ${user.user.creditBalance}</Card.Text> */}
+            {/* {user.user.creditBalance > cartTotal.toFixed(2) ? */}
+            <Link to='/ThankYouPage'>
+              <Button variant="outline-dark"
+              // onClick={handleUserPurchase}
+              >Checkout</Button>
+            </Link>
+          </Card.Body>
+        </Card>
+      </div>
       {cart.slice(1, cart.length).map((book) => {
         return (
           <div className="shoppingCart">
@@ -76,7 +98,6 @@ function Cart() {
                     onClick={() => {
                       cart.splice(cart.indexOf(book), 1);
                       dispatch({ type: REMOVEBOOK, payload: cart });
-                      window.location.reload();
                     }}
                   >
                     Remove
@@ -87,24 +108,7 @@ function Cart() {
           </div>
         );
       })}
-      <div className="checkout">
-        {cart.slice(1, cart.length).forEach((bookInCart) => {
-          cartTotal += bookInCart.PurchasePrice;
-        })}
-        <Card style={{ width: "250px" }}>
-          <Card.Header>Checkout</Card.Header>
-          <Card.Body>
-            <Card.Title>{cartTotal.toFixed(2) < 50 ? "Cart Total:" + "$" + cartTotal.toFixed(2) : <h4 style={{ color: 'red' }}>Not Enough Credits</h4>}</Card.Title>
-            {/* <Card.Text>Your Current Balance: ${user.user.creditBalance}</Card.Text> */}
-            {/* {user.user.creditBalance > cartTotal.toFixed(2) ? */}
-            <Link to='/ThankYouPage'>
-              <Button variant="outline-dark"
-              // onClick={() => cart.splice()}
-              >Checkout</Button>
-            </Link>
-          </Card.Body>
-        </Card>
-      </div>
+
     </>
   );
 }
